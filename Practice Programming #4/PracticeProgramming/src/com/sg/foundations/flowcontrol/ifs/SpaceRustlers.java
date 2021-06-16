@@ -7,7 +7,7 @@ public class SpaceRustlers {
 		
 		
 		 int spaceships = 10;
-	        int aliens = 25;
+	        int aliens = 250;
 	        int cows = 100;
 	        
 	        /**** An IF will follo an instruction, only if the condition etsablished comply with the stated result+***/
@@ -20,7 +20,7 @@ public class SpaceRustlers {
 	            System.out.println("Vrroom, vroom! Let's get going!");
 	        } else{
 	            System.out.println("There aren't enough green guys to drive these ships!");
-	        }else if(aliens > cows) {
+	        } if(aliens > cows) {
 	        	
 	        	System.out.println("Hurrah, we've got the grub! Hamburger party on Alpha Centauri!");
 	        	
