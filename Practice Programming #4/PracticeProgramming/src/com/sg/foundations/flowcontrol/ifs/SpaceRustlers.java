@@ -10,12 +10,10 @@ public class SpaceRustlers {
 	        int aliens = 250;
 	        int cows = 100;
 	        
-	        /**** An IF will follo an instruction, only if the condition etsablished comply with the stated result+***/
-	        /**** while and ELSE IF will follow an instruction if an condition is met and not not other has been met***/
+	        /**** An IF will follow an instruction, only if the condition established comply with the stated result+***/
+	        /**** while and ELSE IF will follow an instruction if an condition is met and not previous condition has been met***/
 	        
 	        
-	        
-
 	        if(aliens > spaceships){
 	            System.out.println("Vrroom, vroom! Let's get going!");
 	        } else{
@@ -40,3 +38,4 @@ public class SpaceRustlers {
 		
 	
 }
+
