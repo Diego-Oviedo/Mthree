@@ -15,24 +15,24 @@ public class MiniZork {
 
         String action = userInput.nextLine().toLowerCase();// adding toLowerCase method, in order to avoid a capitalization mismatch
 
-        if (action.equals("open the mailbox")) {
+        if (action.equalsIgnoreCase("open the mailbox")) {
             System.out.println("You open the mailbox.");
             System.out.println("It's really dark in there.");
             System.out.print("Look inside or stick your hand in? ");
             action = userInput.nextLine().toLowerCase();// adding toLowerCase method, in order to avoid a capitalization mismatch
 
-            if (action.equals("look inside")) {
+            if (action.equalsIgnoreCase("look inside")) {
                 System.out.println("You peer inside the mailbox.");
                 System.out.println("It's really very dark. So ... so very dark.");
                 System.out.print("Run away or keep looking? ");
                 action = userInput.nextLine().toLowerCase();// adding toLowerCase method, in order to avoid a capitalization mismatch
 
-                if (action.equals("keep looking")) {
+                if (action.equalsIgnoreCase("keep looking")) {
                 	System.out.println("*******************************************************************\n");//adding format 
                     System.out.println("Turns out, hanging out around dark places isn't a good idea.");
                     System.out.println("You've been eaten by a grue.");
                     System.exit(0);//adding end of the game 
-                } else if (action.equals("run away")) {
+                } else if (action.equalsIgnoreCase("run away")) {
                 	System.out.println("*******************************************************************\n");//adding format 
                 	System.out.println("You run away screaming across the fields - looking very foolish.");
                     System.out.println("But you alive...");//scenario 3 added
@@ -44,7 +44,7 @@ public class MiniZork {
                     System.out.println("go back to the withe house?");//option added to scenario 3
                     action = userInput.nextLine().toLowerCase();//adding user's response
                 }
-            } else if (action.equals("answer the phone") || action.equals("answer the phone?")) { 
+            } else if (action.equalsIgnoreCase("answer the phone") || action.equalsIgnoreCase("answer the phone?")) { 
             	System.out.println("*******************************************************************\n");//adding format 
             	System.out.println("A terrorific voice says: ");//scenario 4 added
             	System.out.println("YOU FORGOT TO COMMIT YOUR PROJECT!!!!!!!!\n");//scenario 4 added
@@ -52,7 +52,7 @@ public class MiniZork {
             	System.exit(0);//adding end of the game 
             	
             }
-        } else if (action.equals("go back to the withe house") || action.equals("go back to the withe house") || action.equals("go to the house" )) { 
+        } else if (action.equalsIgnoreCase("go back to the withe house") || action.equalsIgnoreCase("go back to the withe house") || action.equalsIgnoreCase("go to the house" )) { 
         	System.out.println("*******************************************************************\n");//adding format 
         	System.out.println("you get inside and realized ther is something differen...");//scenario 5 added
         	System.out.println("everything is clean and sharp, almost steril");//scenario 5 added
@@ -62,13 +62,13 @@ public class MiniZork {
         	System.out.println("you pounce against the table?");//option added to scenario 5
         	action = userInput.nextLine().toLowerCase();//adding user's response
         	
-        }else if (action.equals("turn back?") || action.equals("turn back?")) { 
+        }else if (action.equalsIgnoreCase("turn back?") || action.equalsIgnoreCase("turn back?")  || action.equalsIgnoreCase("you turn back?") ) { 
         	System.out.println("*******************************************************************\n");//adding format 
         	System.out.println("That was a knife to cut your birthday cake  ");//scenario 6 added
         	System.out.println("Happy birthday!!!!!!!!\n");//scenario 6 added
         	System.exit(0);//adding end of the game 
         	
-        }else if (action.equals("you pounce against the table?") || action.equals("you pounce against the table")) { 
+        }else if (action.equals("you pounce against the table?") || action.equalsIgnoreCase("you pounce against the table")) { 
         	System.out.println("*******************************************************************\n");//adding format 
         	System.out.println("you get to sacape and run safe to your house");//scenario 7 added
         	System.out.println("Congrats!\n");//scenario 7 added
