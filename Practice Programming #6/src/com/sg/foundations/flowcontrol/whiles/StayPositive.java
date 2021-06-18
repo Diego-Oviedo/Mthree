@@ -1,0 +1,10 @@
+package com.sg.foundations.flowcontrol.whiles;
+
+public class StayPositive {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
