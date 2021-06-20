@@ -4,9 +4,9 @@ import java.util.*;
 public class TheCount {
 
 	public static void main(String[] args) {
-		int startN = -10;//new Random().nextInt();
+		int startN = 20;//new Random().nextInt();
 		int countByN;
-		int stopAtN  = 20; //new Random().nextInt();
+		int stopAtN  = -20; //new Random().nextInt();
 		int counter = 0;
 		
 		
@@ -16,11 +16,40 @@ public class TheCount {
 		
 		if (startN < stopAtN) {//best expected scenario 
 			
-			countByN = new Random().nextInt((stopAtN / startN)+1);
+			
+			if (startN < 0) {//if starting value is negative 
+				
+				int aux = startN;//store the orginal value into an auxiliar var
+				
+				startN = Math.abs(startN);//convert the starting value into a positive to calculate the countByN 
+				
+				countByN = new Random().nextInt((stopAtN / startN));
+				
+				if(countByN == 0) {
+					countByN = 1;
+				}else {
+					countByN = countByN;
+				}
+				
+				startN = aux;// give back to startN its original value 
+				
+			}else {
+				
+				startN = startN;
+				
+				countByN = new Random().nextInt((stopAtN / startN));
+				
+				if(countByN == 0) {
+					countByN = 1;
+				}else {
+					countByN = countByN;
+				}
+			}
+			
 			
 			System.out.println("count by: " + countByN);
 			
-			for (int i = startN ; i < (stopAtN + 1) ; i = i+countByN) {
+			for (int i = startN ; i <= stopAtN ; i = i+countByN) {
 			
 				if(counter < 3 ) {
 					
@@ -42,6 +71,12 @@ public class TheCount {
 			
 			
 			countByN = new Random().nextInt(Math.abs(stopAtN));// converting the last number of the series into a positive to get a random number between 0 and the last element 
+			
+			if(countByN == 0) {
+				countByN = 1;
+			}else {
+				countByN = countByN;
+			}
 			
 			countByN = countByN *= (-1);//converting the random value into negative 
 			
