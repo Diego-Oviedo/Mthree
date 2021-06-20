@@ -19,7 +19,7 @@ public class MaybeItLovesMe {
 	
 		}
 		
-		System.out.println("\nPetals: " + petals + "\n");
+		
 		
 		do {
 			
