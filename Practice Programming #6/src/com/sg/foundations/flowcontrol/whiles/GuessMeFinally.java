@@ -12,12 +12,14 @@ public class GuessMeFinally {
 		
 		Scanner in = new Scanner(System.in);
 		
-		int NumberToGuess = new Random().nextInt(101);//adding a random generator for a positive number
-		boolean isNegative = new Random().nextBoolean();//adding a random generator to choose if negative or positive
+		int NumberToGuess = new Random().nextInt(101);
+		boolean isNegative = new Random().nextBoolean();
+		int counter = 0; //Declaring and initializing a counter to have record of the user's attempts 
 		
-		if(isNegative) {//adding condition to convert or not the number into a negative 
+		if(isNegative) {
 			
 			NumberToGuess = NumberToGuess *= (-1);
+			
 		}else {
 			
 			NumberToGuess = NumberToGuess;
@@ -30,27 +32,51 @@ public class GuessMeFinally {
 		+ "don't forget to hit enter to confirm your entry");
 		
 		
+		//System.out.println("\n***************\n" + NumberToGuess + "\n***************\n" );
 		
-		try {
-		userGuess = in.nextInt();
 		
-		if(userGuess > NumberToGuess) {
-			System.out.println("Too bad,"+userGuess+" went way too high. I chose " + NumberToGuess + ".");
-		}else if(userGuess == NumberToGuess){
-			System.out.println("Wow, nice guess!" +userGuess+ " That was it!");
-		}else if(userGuess < NumberToGuess) {
-			System.out.println(userGuess + " ? Ha, nice try - too low! I chose " + NumberToGuess + ".");
+		while (userGuess != NumberToGuess) {//adding while to allow several attempts to guess the number
+			
+			
+			if(userGuess > NumberToGuess && userGuess != 0) {//if number inputed is higher and different than zero (as I initialized the variable as zero)
+				
+				System.out.println("Too bad, way too high. Try again!\nYour guess: " + userGuess + ".");
+			
+			}else if(userGuess < NumberToGuess && userGuess != 0 ) {//if number inputed is lower and different than zero (as I initialized the variable as zero)
+				
+				System.out.println("Ha, nice try - too low! Try again!\nYour guess: " + userGuess + ".");
+			
+			}
+			
+			
+			
+			try {
+				userGuess = in.nextInt(); //user's answer 
+			
+			}catch (InputMismatchException e) {
+				
+				System.out.println("Nice try! That wasn't a number...\n"+"Try it again");
+			
+			
+			 }
+			
+			counter ++; // adding an attempt 
 		}
 		
 		
-		
-		}catch (InputMismatchException e) {
-			
-			System.out.println("Nice try! That wasn't a number...\n"+"Try it again");
-		
-		
-		 }
 
+		
+		if(userGuess == NumberToGuess && counter == 1 ){// if guessed at the first attempt 
+		
+			System.out.println("Wow, nice guess!" +userGuess+ " That was it!");
+		
+		}else if(userGuess == NumberToGuess && counter > 1 ){// if guessed after the first attempt 
+		
+			System.out.println("Finally! It's about time you got it!");
+		
+		} 
+		
+		
 	
 
 }
