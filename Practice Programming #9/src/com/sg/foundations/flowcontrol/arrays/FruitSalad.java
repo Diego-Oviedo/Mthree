@@ -26,7 +26,7 @@ public class FruitSalad {
     	
     	for (String fruit : fruits ) {
     		
-    		if(fruit.contains("Apple") && counter <= 11 && apples <= 2) {
+    		if(fruit.contains("Apple") && counter <= 11 && apples <= 3) {
     			
     			apples ++;
     			
@@ -51,7 +51,7 @@ public class FruitSalad {
     			fruitSalad [counter] = fruit;
     			
     			counter	++;
-    		}else if (counter <= 11 && !fruit.contains("Orange") || counter <= 11 && !fruit.contains("berry") || counter <= 11 && !fruit.contains("Apple")) {
+    		}else if (counter <= 11 && !fruit.contains("Orange") && apples <= 3 && oranges <= 2 || counter <= 11 && !fruit.contains("berry") && apples <= 3 && oranges <= 2 || counter <= 11 && !fruit.contains("Apple") && apples <= 3 && oranges <= 2) {
     			
     			fruitSalad [counter] = fruit;
     			
