@@ -9,7 +9,24 @@ public class HiddenNuts {
         Random squirrel = new Random();
         hidingSpots[squirrel.nextInt(hidingSpots.length)] = "Nut";
         System.out.println("The nut has been hidden ...");
-
-        // Nut finding code should go here! 
+        int position = 0;
+        
+       for (String finder : hidingSpots) {
+    	   
+    	   if (finder != null) {
+    		   
+    		   System.out.println("Found it! It's in spot# " + position);
+    		   
+    		   //System.out.println(hidingSpots[position]);
+    		   
+    	   }
+    	   
+    	   position ++;
+    	  
+       }
+       
+       
+       
+    	   
     }
 }
