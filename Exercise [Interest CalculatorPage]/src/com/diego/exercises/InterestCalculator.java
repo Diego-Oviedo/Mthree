@@ -76,7 +76,7 @@ public class InterestCalculator {
 			System.out.println("Ended with $" + amount_invested + "\n");
 			
 			installment_counter = 1;
-	
+	 
 		}
 		
 
