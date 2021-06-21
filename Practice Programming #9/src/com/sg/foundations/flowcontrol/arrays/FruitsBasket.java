@@ -16,10 +16,34 @@ public class FruitsBasket {
         int numOranges = 0;
         int numApples = 0;
         int numOtherFruit = 0;
+        int totalFruits = 0;
 
-        // Fruit counting code goes here!
+        for (String fruit : fruitBasket) {
+        	
+        	if (fruit.equals("Orange")) {
+        		
+        		numOranges ++;
+        		
+        		totalFruits ++;
+        		
+        	}else if (fruit.equals("Apple")) {
+        		
+        		numApples ++;
+        		
+        		totalFruits ++;
+        		
+        	}else if (!fruit.equals("Apple") && !fruit.equals("Orange")) {
+        		
+        		numOtherFruit ++;
+        		
+        		totalFruits ++;
+        	}
+        }
 
-        // Print The Results!
+        System.out.println("\nTotal of fruits in basket: " + totalFruits +"\n");
+        System.out.println("Total of Oranges: " + numOranges + "\n");
+        System.out.println("Total of Apples: " + numApples + "\n");
+        System.out.println("Total of other fruits : " + numOtherFruit + "\n");
 
     }
 }
