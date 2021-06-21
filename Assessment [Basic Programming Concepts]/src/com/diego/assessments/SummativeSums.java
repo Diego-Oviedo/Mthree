@@ -1,4 +1,4 @@
-package com.diego.exercises;
+package com.diego.assessments;
 
 public class SummativeSums {
 
