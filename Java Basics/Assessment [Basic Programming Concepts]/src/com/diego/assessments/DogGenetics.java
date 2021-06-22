@@ -5,6 +5,13 @@ public class DogGenetics {
 
 	public static void main(String[] args) {
 		
+		getGenetics();
+		
+	}
+	
+
+	public static void getGenetics() {
+	
 		System.out.println("************************\nDOG GENETICS\n************************\n");
 		
 		System.out.print("What is your dog's name?");
@@ -49,5 +56,5 @@ public class DogGenetics {
 		
 	}
 	
-
+	
 }
