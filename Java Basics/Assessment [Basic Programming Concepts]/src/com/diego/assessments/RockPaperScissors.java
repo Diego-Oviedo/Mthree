@@ -155,5 +155,6 @@ public class RockPaperScissors {
 
 		
 		System.out.println("Thanks for playing!");
+		System.exit(0);
 	}
 }
