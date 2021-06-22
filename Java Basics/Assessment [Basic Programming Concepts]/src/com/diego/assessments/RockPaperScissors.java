@@ -134,11 +134,11 @@ public class RockPaperScissors {
 			
 			
 		}//end of while for rounds to play
-		System.out.println("*****************************************\nTimes played " + (round_counter-1) + "\n");
+		System.out.println("\n+++++++++++++++++++++++++++++++++++++++++\nTimes played " + (round_counter-1) + "\n");
 		
 		System.out.println("Ties: " +tie_games);
 		System.out.println("Your games won: " +user_games);
-		System.out.println("Computer games won: " + computer_games + "\n*****************************************\n");
+		System.out.println("Computer games won: " + computer_games + "\n+++++++++++++++++++++++++++++++++++++++++\n");
 		
 		if(user_games > computer_games) {
 		System.out.println("Winner: YOU with: " + user_games + " games won");
