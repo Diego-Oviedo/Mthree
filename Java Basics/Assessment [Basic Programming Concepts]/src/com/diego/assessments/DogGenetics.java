@@ -5,17 +5,19 @@ public class DogGenetics {
 
 	public static void main(String[] args) {
 		
-		getGenetics();
+		System.out.println("************************\nDOG GENETICS\n************************\n");
+		
+		System.out.print("What is your dog's name? ");
+		String dogName = new Scanner(System.in).next();
+		
+		
+		getGenetics(dogName);
 		
 	}
 	
 
-	public static void getGenetics() {
+	public static void getGenetics(String dog_name) {
 	
-		System.out.println("************************\nDOG GENETICS\n************************\n");
-		
-		System.out.print("What is your dog's name?");
-		String dog_name = new Scanner(System.in).next();
 		int first_position = 0;
 		int second_position = 0;
 		int third_position = 0;
@@ -23,7 +25,7 @@ public class DogGenetics {
 		int fifth_position = 0;
 		
 		
-		System.out.println("Well then, I have this highly reliable report on " +dog_name+ "'s prestigious background right here.\n");
+		System.out.println("\nWell then, I have this highly reliable report on " +dog_name+ "'s prestigious background right here.\n");
 		
 		System.out.println(dog_name + " is:\n");
 		
