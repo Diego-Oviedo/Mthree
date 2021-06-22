@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Factorizer {
 
-	public static void main(String[] args) {
-		
+	public void startFactorizer() {
+	
 		int number, sum = 0, factors_count = 0;
 		
 		boolean isPrime = true;
@@ -59,6 +59,6 @@ public class Factorizer {
 			
 			System.out.println( number + " is a prime number");
 		}
+		
 	}
-	
 }

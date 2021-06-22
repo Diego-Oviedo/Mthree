@@ -2,9 +2,8 @@ package com.diego.exercises;
 import java.util.*;
 
 public class LuckySevens {
-
-	public static void main(String[] args) {
-		
+	
+	public void playLuckySevens() {
 		int users_budget, max_amnt_held , dice01, dice02, rolls_count = 0, rolls_count_max_amnt = 0;
 		
 		System.out.println("************************\nLUCKY SEVENS\n************************\n");
@@ -60,8 +59,6 @@ public class LuckySevens {
 		System.out.println("You are broke after "+rolls_count+" rolls.");
 		
 		System.out.println("You should have quit after "+rolls_count_max_amnt+" rolls when you had " + max_amnt_held + "$");
-		
-		
 		
 		
 	}

@@ -3,9 +3,7 @@ import java.util.*;
 
 public class InterestCalculator {
 
-	public static void main(String[] args) {
-		
-		
+	public void startInterestCalculator() {
 		System.out.println("Hi John! \nSo you heared the news from Sue?  ,We do have a fund plan tha will pay you an annual percentage of your invesment."
 				+ "\nWe'll be paying this in 4 instalments every 3 months...."
 				+ "\n\n For instances:"
@@ -78,8 +76,6 @@ public class InterestCalculator {
 			installment_counter = 1;
 	 
 		}
-		
-
 	}
 
 }

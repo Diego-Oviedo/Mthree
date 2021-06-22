@@ -3,20 +3,8 @@ import java.io.RandomAccessFile;
 import java.util.*;
 
 public class RockPaperScissors {
-
-	public static void main(String[] args) {
-		
-		
-		playGame();
-		
-		
-		
-		
-	}
 	
-	
-	
-	public static void playGame() {
+	public static void playRockPaperScissors() {
 		String play_again = "n";
 		
 		do {
