@@ -5,6 +5,8 @@ public class DogGenetics {
 
 	public static void main(String[] args) {
 		
+		System.out.println("************************\nDOG GENETICS\n************************\n");
+		
 		System.out.print("What is your dog's name?");
 		String dog_name = new Scanner(System.in).next();
 		int first_position = 0;
