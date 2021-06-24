@@ -16,12 +16,12 @@ public class RosterDaoFileImpl implements classRosterDao {
 
     @Override
     public List<Student> getAllStudents() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    	return new ArrayList<Student>(students.values());
     }
 
     @Override
     public Student getStudent(String studentId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    	 return students.get(studentId);
     }
 
     @Override
