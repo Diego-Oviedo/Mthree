@@ -5,23 +5,30 @@ public class Student {
 	//variables
 	private String firstName; 
 	private String lastName;
-	
-	//default constructor
-	public Student() {
-		super();
-	}
+	private String studentId;//read-only
+	private String cohort;
 
 	//constructor with fields
-	public Student(String firstName, String lastName) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+	public Student(String studentId) {
+        this.studentId = studentId;
+    }
 
 	//getters
 	public String getFirstName() {
 		return firstName;
 	}
+	
+	public String getStudentId() {//read-only 
+        return studentId;
+    }
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getCohort() {
+        return cohort;
+    }
 
 	
 	//setters 
@@ -30,9 +37,9 @@ public class Student {
 	}
 
 
-	public String getLastName() {
-		return lastName;
-	}
+	public void setCohort(String cohort) {
+        this.cohort = cohort;
+    }   
 
 
 	public void setLastName(String lastName) {
