@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RockPaperScissors {
 	
-	public static void playRockPaperScissors() {
+	public static void main(String[] args) {
 		String play_again = "n";
 		
 		do {
