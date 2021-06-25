@@ -6,7 +6,7 @@ public class HealthyHearts {
 	public static void main(String[] args) {
 		
 		
-		System.out.println("************************\nHEALTHY HARTS\n************************\n");
+		System.out.println("************************\nHEALTHY HEARTS\n************************\n");
 		
 		System.out.print("What is your age? ");
 		
