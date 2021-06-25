@@ -4,7 +4,12 @@ import java.util.*;
 
 public class ClassRosterView {
 		
-	private UserIO io = new UserIOConsoleImpl();
+	//private UserIO io = new UserIOConsoleImpl();
+	private UserIO io;//dependency
+	
+	public ClassRosterView (UserIO io) {// injecting dependency for IO user 
+	    this.io = io;
+	}
 
     public int printMenuAndGetSelection() {//this method is being developed over the view module and implemented on the model controller module 
         io.print("Main Menu");
@@ -35,7 +40,11 @@ public class ClassRosterView {
     
     public void displayCreateSuccessBanner() {
         io.readString(
-                "Student successfully created.  Please hit enter to continue");
+                "Student successfully created.  Please hit 0 and enter to continue");
+    }
+    
+    public void displayRemoveResult(Student student) {
+        io.readString("Student was successfully removed.  Please hit 0 and enter to continue");
     }
     
     
@@ -57,6 +66,11 @@ public class ClassRosterView {
     public void displayDisplayStudentBanner () {
         io.print("=== Display Student ===");
     }
+    
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
+    }
 
     public String getStudentIdChoice() {
         return io.readString("Please enter the Student ID.");
@@ -71,6 +85,14 @@ public class ClassRosterView {
         } else {
             io.print("No such student.");
         }
-        io.readString("Please hit enter to continue.");
+        io.readString("Please hit 0 and enter to continue.");
+    }
+    
+    public void displayExitBanner() {
+        io.print("Good Bye!!!");
+    }
+
+    public void displayUnknownCommandBanner() {
+        io.print("Unknown Command!!!");
     }
 }
