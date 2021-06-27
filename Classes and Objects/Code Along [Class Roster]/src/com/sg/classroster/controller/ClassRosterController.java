@@ -42,6 +42,7 @@ public class ClassRosterController {
                     break;
                 case 5:
                     keepGoing = false;
+                    exitMessage();
                     break;
                 default:
                 	unknownCommand();
