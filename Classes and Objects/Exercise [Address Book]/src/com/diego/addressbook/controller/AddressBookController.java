@@ -53,7 +53,7 @@ public class AddressBookController {
             }
 
         }
-        exitMessage();
+ 
 	    } catch (AddressBookExceptionDAO e) {
 	        view.displayErrorMessage(e.getMessage());
 	    }
@@ -83,7 +83,7 @@ public class AddressBookController {
 	private void viewContact() throws AddressBookExceptionDAO {
 		view.displayDevider();
 		view.displayContactsBanner();
-		String fullName = view.getContactFullName();
+		String fullName = view.getContactFullName().toUpperCase();
 		Contact contact = dao.findContactByfullName(fullName);
 		if(contact != null) {
 		view.displayContactsBanner();
@@ -100,10 +100,10 @@ public class AddressBookController {
 	private void removeContact() throws AddressBookExceptionDAO {
 		view.displayDevider();
 		view.displayRemoveContactBanner();
-		String fullName = view.getContactFullName();
-		Contact contact = dao.findContactByfullName(fullName);
+		String fullName = view.getContactFullName().toUpperCase();
+		Contact contact = dao.findContactByfullName(fullName.toUpperCase());
 		if(contact != null) {
-		Contact contact_removed = dao.removeContact(contact.getLastName());
+		Contact contact_removed = dao.removeContact((contact.getFirstName()+contact.getLastName()).toUpperCase());
 		view.displayRemoveResult(contact_removed);
 		view.displayDevider();
 		}else {
@@ -121,6 +121,7 @@ public class AddressBookController {
 		if(contact != null) {
 		Contact new_contact = view.getContactInfoToUpdate(contact);
 		dao.updateContact(fullName,new_contact);
+		view.displayUpdateSuccessBanner();
 		view.displayDevider();
 		}else {
 			view.displayDevider();

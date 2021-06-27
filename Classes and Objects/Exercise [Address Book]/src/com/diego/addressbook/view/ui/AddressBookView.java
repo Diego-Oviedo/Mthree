@@ -37,8 +37,9 @@ public class AddressBookView {
 	        String streetAddress = io.readString("Please enter Street Address");
 	        String province = io.readString("Please enter Province/state");
 	        String postalCode = io.readString("Please enter Postal Code");
-	        Contact currentContact = new Contact(lastName);
+	        Contact currentContact = new Contact((firstName+lastName).toUpperCase());
 	        currentContact.setFirstName(firstName);
+	        currentContact.setLastName(lastName);
 	        currentContact.setStreetAddress(streetAddress);
 	        currentContact.setProvince(province);
 	        currentContact.setPostalCode(postalCode);
@@ -66,37 +67,43 @@ public class AddressBookView {
 		 	}
 		 	
 		 	if(io.readString("Street Address: " + contact.getStreetAddress() + " want to change it? (Y/N)").equalsIgnoreCase("y")) {
-		 		lastName = io.readString("Please enter Street Address: ");
+		 		streetAddress = io.readString("Please enter Street Address: ");
 		 	}else {
-		 		lastName = contact.getStreetAddress();
+		 		streetAddress = contact.getStreetAddress();
 		 	}
 		 	
 		 	if(io.readString("Province: " + contact.getProvince() + " want to change it? (Y/N)").equalsIgnoreCase("y")) {
-		 		lastName = io.readString("Please enter Province: ");
+		 		province = io.readString("Please enter Province: ");
 		 	}else {
-		 		lastName = contact.getProvince();
+		 		province = contact.getProvince();
 		 	}
 	        
 		 	if(io.readString("Postal Code: " + contact.getPostalCode() + " want to change it? (Y/N)").equalsIgnoreCase("y")) {
-		 		lastName = io.readString("Please enter Postal Code: ");
+		 		postalCode = io.readString("Please enter Postal Code: ");
 		 	}else {
-		 		lastName = contact.getPostalCode();
+		 		postalCode = contact.getPostalCode();
 		 	}
+		 	
+
+	        Contact contact_to_update = new Contact((firstName+lastName).toUpperCase());
+	        contact_to_update.setFirstName(firstName);
+	        contact_to_update.setLastName(lastName);
+	        contact_to_update.setStreetAddress(streetAddress);
+	        contact_to_update.setProvince(province);
+	        contact_to_update.setPostalCode(postalCode);
 	        
-	        Contact currentContact = new Contact(firstName+lastName);
-	        currentContact.setFirstName(firstName);
-	        currentContact.setLastName(lastName);
-	        currentContact.setStreetAddress(streetAddress);
-	        currentContact.setProvince(province);
-	        currentContact.setPostalCode(postalCode);
-	        
-	        return currentContact;
+	        return contact_to_update;
 	    }
 	 
 	     
 	   public void displayCreateSuccessBanner() {
 	        io.readString(
 	                "Contact successfully created.\nPlease hit 0 and enter to continue");
+	    }
+	   
+	   public void displayUpdateSuccessBanner() {
+	        io.readString(
+	                "Contact successfully updated.\nPlease hit 0 and enter to continue");
 	    }
 	   
 	   public String getContactFullName() {
@@ -108,9 +115,7 @@ public class AddressBookView {
 		    }
 	    
 	    public void displayRemoveResult(Contact contact) {
-	        io.readString("Contact:\n");
-	        displayContact(contact);
-	        io.readString("\nwas successfully removed.\nPlease hit 0 and enter to continue");
+	        io.readString("Contact was successfully removed.\nPlease hit 0 and enter to continue");
 	    }
 	    
 	    public void displayContactsBanner() {

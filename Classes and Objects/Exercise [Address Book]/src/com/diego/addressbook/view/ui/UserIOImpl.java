@@ -17,7 +17,7 @@ public class UserIOImpl implements UserIO{
 		
 		return N;
 	}
-
+ 
 	@Override
 	public double readDouble(String prompt, double min, double max) {
 		System.out.println(prompt);
@@ -113,7 +113,7 @@ public class UserIOImpl implements UserIO{
 	@Override
 	public String readString(String prompt) {
 		System.out.println(prompt);
-		String text = new Scanner(System.in).next();
+		String text = new Scanner(System.in).nextLine();
 		return text;
 	}
 	

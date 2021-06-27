@@ -2,6 +2,7 @@ package com.diego.addressbook.model.dto;
 
 public class Contact {
 	
+	private String fullName;
 	private String firstName;
 	private String lastName;
 	private String streetAddress;
@@ -9,23 +10,19 @@ public class Contact {
 	private String postalCode;
 	
 	
-	public Contact() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
 	public Contact(String fullName) {
-		this.lastName = fullName;
+		super();
+		this.fullName = fullName;
 	}
 
 
-	public Contact(String firstName, String lastName, String streetAddress, String province, String postalCode) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.streetAddress = streetAddress;
-		this.province = province;
-		this.postalCode = postalCode;
+	public String getFullName() {
+		return fullName;
+	}
+
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 
@@ -77,5 +74,7 @@ public class Contact {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-
+	
+	
+	
 }

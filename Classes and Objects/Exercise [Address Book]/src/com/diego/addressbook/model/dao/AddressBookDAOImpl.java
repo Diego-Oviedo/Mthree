@@ -17,7 +17,7 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 	
 	@Override
 	public Contact addContact(String fullName, Contact contac) throws AddressBookExceptionDAO{
-		Contact contact = contacts.put(fullName, contac);
+		Contact contact = contacts.put(fullName.toUpperCase(), contac);
 		writeContact();
 		return contact;
 	}
@@ -25,7 +25,7 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 	@Override
 	public Contact removeContact(String fullName) throws AddressBookExceptionDAO{
 		loadData();
-		Contact contact = contacts.remove(fullName);
+		Contact contact = contacts.remove(fullName.toUpperCase());
 		writeContact();
 		return contact;
 	}
@@ -49,7 +49,7 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 		Set <String> keys = contacts.keySet();
 		Contact contact = null;
 
-			contact = contacts.get(fullName);
+			contact = contacts.get(fullName.toUpperCase());
 
 		return contact;
 	}
@@ -57,8 +57,10 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 	@Override
 	public Contact updateContact(String fullName,Contact new_contact) throws AddressBookExceptionDAO{
 		loadData();
-		contacts.remove(fullName);
-		Contact contact_updated = contacts.put(new_contact.getFirstName()+new_contact.getLastName(), new_contact);
+		Contact contact_deleted = contacts.remove(fullName.toUpperCase());
+		writeContact();
+		Contact contact_updated = contacts.put((new_contact.getFirstName()+new_contact.getLastName()).toUpperCase(), new_contact);
+		writeContact();
 		return contact_updated;
 	}
 	
@@ -88,7 +90,7 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 
 	        currentContact = unmarshallObject(currentLine); //Convert a line into an object 
 	        
-	        contacts.put(currentContact.getFirstName()+currentContact.getLastName(), currentContact);//put the object into the HashMap 
+	        contacts.put((currentContact.getFirstName()+currentContact.getLastName()).toUpperCase(), currentContact);//put the object into the HashMap 
 	    }
 	    
 	    reader.close();//once done, close the reader
@@ -96,10 +98,11 @@ public class AddressBookDAOImpl implements AddressBookDAO {
 	
 	
 	private Contact unmarshallObject(String objectAsText){
+		
 		String[] objectTokens = objectAsText.split(DELIMITER);//the split method will return an array of string  with every piece of data in each element 
 		
 		 
-		String fullName ="" + objectTokens[0] + objectTokens[1];
+		String fullName ="" + objectTokens[0].toUpperCase() + objectTokens[1].toUpperCase();
 		 
 		Contact contact = new Contact(fullName);
 		
