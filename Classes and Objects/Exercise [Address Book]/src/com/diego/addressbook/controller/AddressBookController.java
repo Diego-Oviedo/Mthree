@@ -66,6 +66,7 @@ public class AddressBookController {
 	private void getlistOfContacts() throws AddressBookExceptionDAO {
 		view.displayDevider();
 		view.displayAllContactsBanner();
+		view.displayContactsLoaded(dao.retreiveNumContacts());
 		List<Contact> contacts = dao.retreiveAllContacts();
 		view.displayContactList(contacts);
 		view.displayDevider();

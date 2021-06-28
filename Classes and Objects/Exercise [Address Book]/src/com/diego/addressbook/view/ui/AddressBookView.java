@@ -23,6 +23,10 @@ public class AddressBookView {
         return io.readInt("Please select from the above choices.", 1, 6);
     }
 	
+	public void displayContactsLoaded(int contacts) {
+        io.print("*** "+contacts+" Contacts in the Address Book ***");
+    }
+	
 	public void displayCreateContactBanner() {
 	        io.print("=== Create Contact ===");
 	    }
