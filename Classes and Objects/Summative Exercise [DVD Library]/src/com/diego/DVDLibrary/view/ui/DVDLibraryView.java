@@ -26,7 +26,7 @@ public class DVDLibraryView {
     }
 	
 	public void displayDVDsLoaded(int dvds) {
-        io.print("*** "+dvds+" DVDs in the Library ***");
+        io.print("*** "+dvds+" DVDs in the Library ***\n");
     }
 	
 	public void displayAddADVDBanner() {
@@ -122,14 +122,14 @@ public class DVDLibraryView {
 	
 	public void displayDVDList(List<DVD> DVDList) {
         for (DVD currentDVD : DVDList) {
-            String DVDInfo = String.format("%s : %s %s %s %s %s %s",
-                  "SKU: "+currentDVD.getSKU(),
-                  "Title: "+currentDVD.getTitle()+"\n",
-                  "Release date: "+currentDVD.getRelease_date()+"\n",
-                  "MPAA rating: "+currentDVD.getMPAA_rating()+"\n",
-                  "Director's name: "+currentDVD.getAuthor()+"\n",
-                  "Studio: "+currentDVD.getStudio()+"\n",
-                  "User rating or note: "+currentDVD.getUser_note()+"\n");
+            String DVDInfo = String.format("%s %s %s %s %s %s %s",
+                  "SKU: "+currentDVD.getSKU()+"\n",
+                  "● Title: "+currentDVD.getTitle()+"\n",
+                  "● Release date: "+currentDVD.getRelease_date()+"\n",
+                  "● MPAA rating: "+currentDVD.getMPAA_rating()+"\n",
+                  "● Director's name: "+currentDVD.getAuthor()+"\n",
+                  "● Studio: "+currentDVD.getStudio()+"\n",
+                  "● User rating or note: "+currentDVD.getUser_note()+"\n");
             io.print(DVDInfo);
         }
         io.readString("Please hit 0 and enter to continue.");
@@ -138,14 +138,14 @@ public class DVDLibraryView {
     
     public void displayDVD(DVD DVD) {
         if (DVD != null) { 
-        	String DVDInfo = String.format("%s : %s %s %s %s %s %s",
-                    "SKU: "+DVD.getSKU(),
-                    "Title: "+DVD.getTitle()+"\n",
-                    "Release date: "+DVD.getRelease_date()+"\n",
-                    "MPAA rating: "+DVD.getMPAA_rating()+"\n",
-                    "Director's name: "+DVD.getAuthor()+"\n",
-                    "Studio: "+DVD.getStudio()+"\n",
-                    "User rating or note: "+DVD.getUser_note()+"\n");
+        	String DVDInfo = String.format("%s %s %s %s %s %s %s",
+                    "SKU: "+DVD.getSKU()+"\n",
+                    "● Title: "+DVD.getTitle()+"\n",
+                    "● Release date: "+DVD.getRelease_date()+"\n",
+                    "● MPAA rating: "+DVD.getMPAA_rating()+"\n",
+                    "● Director's name: "+DVD.getAuthor()+"\n",
+                    "● Studio: "+DVD.getStudio()+"\n",
+                    "● User rating or note: "+DVD.getUser_note()+"\n");
         	
         	 io.print(DVDInfo);
         } else {
