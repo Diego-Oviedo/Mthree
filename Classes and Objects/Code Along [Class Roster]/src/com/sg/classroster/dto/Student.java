@@ -1,4 +1,5 @@
 package com.sg.classroster.dto;
+import java.util.*;
 
 public class Student {
 
@@ -7,6 +8,7 @@ public class Student {
 	private String lastName;
 	private String studentId;//read-only
 	private String cohort;
+	private List<String> transactionRecord;
 
 	//constructor with fields
 	public Student(String studentId) {
@@ -44,6 +46,14 @@ public class Student {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public List<String> getTransactionRecord() {
+		return transactionRecord;
+	}
+
+	public void setTransactionRecord(List<String> transactionRecord) {
+		this.transactionRecord = transactionRecord;
 	} 
 	
 	

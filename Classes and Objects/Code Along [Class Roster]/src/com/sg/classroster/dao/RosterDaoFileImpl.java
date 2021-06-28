@@ -12,7 +12,7 @@ public class RosterDaoFileImpl implements ClassRosterDao {
 	private Map<String, Student> students = new HashMap<>();
 
 	@Override
-    public Student addStudent(String studentId, Student student) throws ClassRosterDaoException{
+    public Student addStudent(String studentId, Student student) throws ClassRosterPersistenceException{
 		loadRoster();
 	    Student newStudent = students.put(studentId, student);
 	    writeRoster();
@@ -39,7 +39,7 @@ public class RosterDaoFileImpl implements ClassRosterDao {
 	    return studentFromFile;
 	}
 	
-	private void loadRoster() throws ClassRosterDaoException {//the exception is being passed through the ClassRosterDaoException class
+	private void loadRoster() throws ClassRosterPersistenceException {//the exception is being passed through the ClassRosterDaoException class
 	   
 		Scanner reader;//set reader as a local variable so the method will have access to the variable (if instanced inside the try, it won't be accessible to the rest of the method) 
 		
@@ -49,7 +49,7 @@ public class RosterDaoFileImpl implements ClassRosterDao {
 		      reader = new Scanner(file);
 		      reader.useDelimiter(DELIMITER);
 	    } catch (FileNotFoundException e) {
-	        throw new ClassRosterDaoException(
+	        throw new ClassRosterPersistenceException(
 	                "-_- Could not load roster data into memory.", e);
 	    }
 	    
@@ -82,13 +82,13 @@ public class RosterDaoFileImpl implements ClassRosterDao {
 		return studentAsText;
 	}
 	
-	private void writeRoster() throws ClassRosterDaoException { //It is the responsibility of the calling code to handle any errors that occur.
+	private void writeRoster() throws ClassRosterPersistenceException { //It is the responsibility of the calling code to handle any errors that occur.
 		PrintWriter out;
 		
 		try {
 	        out = new PrintWriter(new FileWriter(ROSTER_FILE));
 	    } catch (IOException e) {
-	        throw new ClassRosterDaoException(
+	        throw new ClassRosterPersistenceException(
 	                "Could not save student data.", e);
 	    }
 		
@@ -109,17 +109,17 @@ public class RosterDaoFileImpl implements ClassRosterDao {
 	
 
     @Override
-    public List<Student> getAllStudents() throws ClassRosterDaoException {
+    public List<Student> getAllStudents() throws ClassRosterPersistenceException {
         loadRoster();
         return new ArrayList(students.values());
     }
     @Override
-    public Student getStudent(String studentId) throws ClassRosterDaoException{
+    public Student getStudent(String studentId) throws ClassRosterPersistenceException{
     	loadRoster();
         return students.get(studentId);
     }
     @Override
-    public Student removeStudent(String studentId) throws ClassRosterDaoException {
+    public Student removeStudent(String studentId) throws ClassRosterPersistenceException {
         loadRoster();
         Student removedStudent = students.remove(studentId);
         writeRoster();

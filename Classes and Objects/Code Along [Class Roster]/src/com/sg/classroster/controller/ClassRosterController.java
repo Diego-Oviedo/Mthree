@@ -50,7 +50,7 @@ public class ClassRosterController {
 
         }
         exitMessage();
-	    } catch (ClassRosterDaoException e) {
+	    } catch (ClassRosterPersistenceException e) {
 	        view.displayErrorMessage(e.getMessage());
 	    }
     }
@@ -59,27 +59,27 @@ public class ClassRosterController {
         return view.printMenuAndGetSelection();
     }
     
-    private void listStudents() throws ClassRosterDaoException {
+    private void listStudents() throws ClassRosterPersistenceException {
     	List<Student> students = dao.getAllStudents();
     	view.displayDisplayAllBanner();
         view.displayStudentList(students);
     }
     
-    private void createStudent() throws ClassRosterDaoException {
+    private void createStudent() throws ClassRosterPersistenceException {
     	view.displayCreateStudentBanner();
         Student student = view.getNewStudentInfo();
         dao.addStudent(student.getStudentId(), student);
         view.displayCreateSuccessBanner();
     }
     
-    private void viewStudent() throws ClassRosterDaoException {
+    private void viewStudent() throws ClassRosterPersistenceException {
         view.displayDisplayStudentBanner();
         String studentId = view.getStudentIdChoice();
         Student student = dao.getStudent(studentId);
         view.displayStudent(student);
     }
     
-    private void removeStudent() throws ClassRosterDaoException {
+    private void removeStudent() throws ClassRosterPersistenceException {
     	String studentId = view.getStudentIdChoice();
     	Student removedStudent = dao.removeStudent(studentId);
     	view.displayRemoveResult(removedStudent);
