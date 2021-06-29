@@ -13,6 +13,14 @@ public class Student {
 	public Student(String studentId) {
         this.studentId = studentId;
     }
+	
+	//adding the default constructor
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	//getters
 	public String getFirstName() {
