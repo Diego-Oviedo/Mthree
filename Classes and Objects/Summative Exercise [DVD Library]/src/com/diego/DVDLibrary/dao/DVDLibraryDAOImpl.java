@@ -72,7 +72,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 		DVD DVD_deleted = DVDs.remove(SKU);
 		writeDVD();
 		String new_SKU = (dvd.getTitle().substring(0, 2).toUpperCase() + dvd.getStudio().substring(0, 2).toUpperCase() + 00 + "" + dvd.getRelease_date());
-        
+		
 		dvd.setSKU(SKU);
 		DVD DVD_updated = DVDs.put(dvd.getSKU(), dvd);
 		writeDVD();
