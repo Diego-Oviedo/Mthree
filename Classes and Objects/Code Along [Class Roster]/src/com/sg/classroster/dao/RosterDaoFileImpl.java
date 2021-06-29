@@ -4,7 +4,7 @@ import java.util.*;
 import com.sg.classroster.dto.*;
 import java.io.*;
 
-public class RosterDaoFileImpl implements ClassRosterDao {
+public class RosterDaoFileImpl implements ClassRosterDAO {
 	
 	public static final String ROSTER_FILE = "roster.txt";
 	public static final String DELIMITER = "::";

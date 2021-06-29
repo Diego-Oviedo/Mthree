@@ -1,18 +1,20 @@
 package com.sg.classroster.service;
 
 import java.util.*;
-import com.sg.classroster.dao.ClassRosterPersistenceException;
-import com.sg.classroster.dao.RosterDaoFileImpl;
+
+import com.sg.classroster.dao.*;
 import com.sg.classroster.dto.Student;
 import java.text.SimpleDateFormat;
 
 public class ClassRosterServiceImpl implements ClassRosterService {
 	
-	private RosterDaoFileImpl dao;
+	private ClassRosterDAO dao;
+	private ClassRosterAuditDao auditDao;
 
-	public ClassRosterServiceImpl(RosterDaoFileImpl dao) {
+	public ClassRosterServiceImpl(ClassRosterDAO dao, ClassRosterAuditDao auditDao) {
 		super();
 		this.dao = dao;
+		this.auditDao = auditDao;
 	}
 
 	@Override
@@ -41,11 +43,9 @@ public class ClassRosterServiceImpl implements ClassRosterService {
 		}
 		
 		
-		Date current_date = new Date();//record an entry to an audit log every time a Student object is created or removed from the system
-		SimpleDateFormat date_formatted = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss");
-		String transaction_date = date_formatted.format(current_date);
+		dao.addStudent(student.getStudentId(), student);
 		
-		student.getTransactionRecord().add(transaction_date);
+		auditDao.writeAuditEntry("Student: " +  student.getStudentId() + " Crated!!");
 	}
 
 	@Override
@@ -65,12 +65,8 @@ public class ClassRosterServiceImpl implements ClassRosterService {
 		
 		Student student_deleted = dao.removeStudent(studentId);
 		
-		Date current_date = new Date(); //record an entry to an audit log every time a Student object is created or removed from the system
-		SimpleDateFormat date_formatted = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss");
-		String transaction_date = date_formatted.format(current_date);
-		
-		student_deleted.getTransactionRecord().add(transaction_date);
-		
+
+		auditDao.writeAuditEntry("Student: " +  studentId + " Removed!!");
 		
 		return student_deleted ;
 		

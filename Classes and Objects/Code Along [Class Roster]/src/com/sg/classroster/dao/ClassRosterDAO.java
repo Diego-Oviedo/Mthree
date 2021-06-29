@@ -1,10 +1,11 @@
 package com.sg.classroster.dao;
-import com.sg.classroster.dto.*;
-import java.util.*;
 
-public interface ClassRosterDao {
+import java.util.List;
 
-	Student addStudent(String studentId, Student student)throws ClassRosterPersistenceException;
+import com.sg.classroster.dto.Student;
+
+public interface ClassRosterDAO {
+Student addStudent(String studentId, Student student)throws ClassRosterPersistenceException;
 	
 	List<Student> getAllStudents()throws ClassRosterPersistenceException;
 	
