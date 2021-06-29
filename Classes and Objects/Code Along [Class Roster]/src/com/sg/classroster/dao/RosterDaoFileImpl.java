@@ -6,8 +6,17 @@ import java.io.*;
 
 public class RosterDaoFileImpl implements ClassRosterDAO {
 	
-	public static final String ROSTER_FILE = "roster.txt";
+	public final String ROSTER_FILE;
 	public static final String DELIMITER = "::";
+	
+	public RosterDaoFileImpl(){
+	    ROSTER_FILE = "roster.txt";
+	}
+
+	public RosterDaoFileImpl(String rosterTextFile){
+	    ROSTER_FILE = rosterTextFile;
+	}
+	
 	
 	private Map<String, Student> students = new HashMap<>();
 
