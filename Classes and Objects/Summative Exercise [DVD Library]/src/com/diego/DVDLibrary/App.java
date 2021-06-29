@@ -1,7 +1,7 @@
 package com.diego.DVDLibrary;
 
 import com.diego.DVDLibrary.controller.DVDLibraryController;
-import com.diego.DVDLibrary.dao.DVDLibraryDAOImpl;
+import com.diego.DVDLibrary.dao.*;
 import com.diego.DVDLibrary.view.ui.*;
 
 public class App {
@@ -10,7 +10,7 @@ public class App {
 		
 		UserIO io = new UserIOImpl();
 		DVDLibraryView view = new DVDLibraryView(io);
-		DVDLibraryDAOImpl dao = new DVDLibraryDAOImpl();
+		DVDLibraryDAO dao = new DVDLibraryDAOImpl();
 
 		DVDLibraryController app = new DVDLibraryController(dao,view);
 		

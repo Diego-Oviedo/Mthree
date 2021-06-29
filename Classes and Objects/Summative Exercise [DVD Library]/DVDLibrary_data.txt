@@ -4,3 +4,4 @@ Promising Young Woman::2020::7.9::Emerald Fennell::Dreamworks::N/A
 Gone Girl ::2014::6.4::Nick Dunne::20th Century::not so good movie
 CAPTAIN MARVEL::2019::6.5::Anna Boden, Ryan Fleck::Marvel::not so good one
 Black Swan::2010::6.9::Darren Aronofsky::Marvel::Good movie
+Black Swan::2021::6.9::Darren Aronofsky::Marvel::Good movie

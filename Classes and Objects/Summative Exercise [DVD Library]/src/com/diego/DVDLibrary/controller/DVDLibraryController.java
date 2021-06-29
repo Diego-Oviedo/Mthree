@@ -2,17 +2,16 @@ package com.diego.DVDLibrary.controller;
 
 import java.util.List;
 
-import com.diego.DVDLibrary.dao.DVDLibraryDAOImpl;
-import com.diego.DVDLibrary.dao.DVDLibraryExceptionDAO;
+import com.diego.DVDLibrary.dao.*;
 import com.diego.DVDLibrary.dto.DVD;
 import com.diego.DVDLibrary.view.ui.DVDLibraryView;
 
 public class DVDLibraryController {
 	
-	private DVDLibraryDAOImpl dao;
+	private DVDLibraryDAO dao;
 	private DVDLibraryView view;
 	
-	public DVDLibraryController(DVDLibraryDAOImpl dao, DVDLibraryView view) {
+	public DVDLibraryController(DVDLibraryDAO dao, DVDLibraryView view) {
 		super();
 		this.dao = dao;
 		this.view = view;
