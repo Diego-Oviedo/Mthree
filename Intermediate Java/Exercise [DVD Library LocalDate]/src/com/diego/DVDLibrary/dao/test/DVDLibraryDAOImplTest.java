@@ -47,7 +47,7 @@ class DVDLibraryDAOImplTest {
 		//ARRANGE
 		DVD dvd_test = new DVD("0001");
 		dvd_test.setTitle("House of Cards");
-		dvd_test.setRelease_date("2020");
+		dvd_test.setRelease_date(dvd_test.yearToDateFormatter("2020"));
 		dvd_test.setMPAA_rating(7.9);
 		dvd_test.setAuthor("Michael Collins");
 		dvd_test.setStudio("Marvel");
@@ -86,7 +86,7 @@ class DVDLibraryDAOImplTest {
 		//ARRANGE
 		DVD dvd_test_01 = new DVD("0001");
 		dvd_test_01.setTitle("House of Cards");
-		dvd_test_01.setRelease_date("2020");
+		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
 		dvd_test_01.setAuthor("Michael Collins");
 		dvd_test_01.setStudio("Marvel");
@@ -94,7 +94,7 @@ class DVDLibraryDAOImplTest {
 		
 		DVD dvd_test_02 = new DVD("0002");
 		dvd_test_02.setTitle("Breaking Bad");
-		dvd_test_02.setRelease_date("2010");
+		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
 		dvd_test_02.setAuthor("Michael Collins & friends");
 		dvd_test_02.setStudio("Dreamworks");
@@ -125,7 +125,7 @@ class DVDLibraryDAOImplTest {
 		//ARRANGE
 		DVD dvd_test_01 = new DVD("HOMA02020");
 		dvd_test_01.setTitle("House of Cards");
-		dvd_test_01.setRelease_date("2020");
+		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
 		dvd_test_01.setAuthor("Michael Collins");
 		dvd_test_01.setStudio("Marvel");
@@ -133,7 +133,7 @@ class DVDLibraryDAOImplTest {
 		
 		DVD dvd_test_02 = new DVD("BRDR02010");
 		dvd_test_02.setTitle("Breaking Bad");
-		dvd_test_02.setRelease_date("2010");
+		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
 		dvd_test_02.setAuthor("Michael Collins & friends");
 		dvd_test_02.setStudio("Dreamworks");
@@ -182,7 +182,7 @@ class DVDLibraryDAOImplTest {
 		//ARRANGE
 		DVD dvd_test_01 = new DVD("HOMA02020");
 		dvd_test_01.setTitle("House of Cards");
-		dvd_test_01.setRelease_date("2020");
+		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
 		dvd_test_01.setAuthor("Michael Collins");
 		dvd_test_01.setStudio("Marvel");
@@ -190,7 +190,7 @@ class DVDLibraryDAOImplTest {
 		
 		DVD dvd_test_02 = new DVD("BRDR02010");
 		dvd_test_02.setTitle("Breaking Bad");
-		dvd_test_02.setRelease_date("2010");
+		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
 		dvd_test_02.setAuthor("Michael Collins & friends");
 		dvd_test_02.setStudio("Dreamworks");
@@ -203,7 +203,7 @@ class DVDLibraryDAOImplTest {
 		
 		DVD dvd_test_01_updated = new DVD();
 		dvd_test_01_updated.setTitle("Spiderman");//Data modified
-		dvd_test_01_updated.setRelease_date("2015");//Data modified
+		dvd_test_01_updated.setRelease_date(dvd_test_01_updated.yearToDateFormatter("2015"));//Data modified
 		dvd_test_01_updated.setMPAA_rating(7.9);
 		dvd_test_01_updated.setAuthor("Michael Mayers");//Data modified
 		dvd_test_01_updated.setStudio("Dreamworks");//Data modified
@@ -211,7 +211,7 @@ class DVDLibraryDAOImplTest {
 		
 		DVD dvd_test_02_updated = new DVD();
 		dvd_test_02_updated.setTitle("UP");//Data modified
-		dvd_test_02_updated.setRelease_date("2017");//Data modified
+		dvd_test_02_updated.setRelease_date(dvd_test_02_updated.yearToDateFormatter("2017"));//Data modified
 		dvd_test_02_updated.setMPAA_rating(9.9);
 		dvd_test_02_updated.setAuthor("Michael Ashton");//Data modified
 		dvd_test_02_updated.setStudio("Marvel");//Data modified

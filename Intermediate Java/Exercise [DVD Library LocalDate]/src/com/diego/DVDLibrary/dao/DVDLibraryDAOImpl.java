@@ -5,13 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import com.diego.DVDLibrary.dto.DVD;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	
@@ -84,7 +83,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	public DVD updateDVD(String SKU, DVD dvd) throws DVDLibraryExceptionDAO {
 		DVD DVD_deleted = removeDVD(SKU);
 		
-		String new_SKU = (dvd.getTitle().substring(0, 2).toUpperCase() + dvd.getStudio().substring(0, 2).toUpperCase() + 00 + "" + dvd.getRelease_date());
+		String new_SKU = (dvd.getTitle().substring(0, 2).toUpperCase() + dvd.getStudio().substring(0, 2).toUpperCase() + 00 + "" + dvd.getRelease_date().getYear());
 		
 		dvd.setSKU(new_SKU);
 		
@@ -95,7 +94,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	
 	
 	//UTILITY METHODS 
-	
+
 	private void loadData() throws DVDLibraryExceptionDAO{
 		   
 		Scanner reader;
@@ -121,7 +120,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 
 	        currentDVD = unmarshallObject(currentLine); //Convert a line into an object 
 	        
-	        SKU = (currentDVD.getTitle().substring(0, 2).toUpperCase() + currentDVD.getStudio().substring(0, 2).toUpperCase() + 00 + "" + currentDVD.getRelease_date());
+	        SKU = (currentDVD.getTitle().substring(0, 2).toUpperCase() + currentDVD.getStudio().substring(0, 2).toUpperCase() + 00 + "" + currentDVD.getRelease_date().getYear());
 	        
 	        currentDVD.setSKU(SKU);
 	        
@@ -144,7 +143,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 		
 		DVD.setTitle(objectTokens[0]);
 		
-		DVD.setRelease_date(objectTokens[1]);
+		DVD.setRelease_date(DVD.yearToDateFormatter(objectTokens[1]));
 
 		DVD.setMPAA_rating(Double.valueOf(objectTokens[2]));
 		
@@ -159,7 +158,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	
 	private String marshallObject(DVD DVD){
 		String DVDAsText = DVD.getTitle() + DELIMITER; 
-		DVDAsText += DVD.getRelease_date()+ DELIMITER;
+		DVDAsText += DVD.getRelease_date().getYear()+ DELIMITER;
 		DVDAsText += DVD.getMPAA_rating() + DELIMITER;
 		DVDAsText += DVD.getAuthor() + DELIMITER;
 		DVDAsText += DVD.getStudio() + DELIMITER;

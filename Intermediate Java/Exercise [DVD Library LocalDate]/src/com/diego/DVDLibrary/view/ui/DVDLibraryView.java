@@ -1,5 +1,6 @@
 package com.diego.DVDLibrary.view.ui;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.diego.DVDLibrary.dto.DVD;
@@ -51,7 +52,7 @@ public class DVDLibraryView {
         
         currentDVD.setSKU(SKU);
         currentDVD.setTitle(title);
-        currentDVD.setRelease_date(release_date);
+        currentDVD.setRelease_date(DVD.yearToDateFormatter(release_date));
         currentDVD.setMPAA_rating(MPAA_rating);
         currentDVD.setAuthor(author);
         currentDVD.setStudio(studio);
@@ -62,7 +63,7 @@ public class DVDLibraryView {
 	
 	public DVD getDVDInfoToUpdate(DVD DVD) {
 			String title = null;
-	        String release_date = null;
+	        LocalDate release_date = null;
 	        double MPAA_rating = 0.0;
 	        String author = null;
 	        String studio = null;
@@ -75,8 +76,9 @@ public class DVDLibraryView {
 		 		title = DVD.getTitle();
 		 	}
 		 	
-		 	if(io.readString("Release date: " + DVD.getRelease_date() + " want to change it? (Y/N)").equalsIgnoreCase("y")) {
-		 		release_date = io.readString("Please enter Release date: ");
+		 	if(io.readString("Release date: " + DVD.getRelease_date().getYear() + " want to change it? (Y/N)").equalsIgnoreCase("y")) {
+		 		String realease_date_string = io.readString("Please enter Release date: ");
+		 		release_date = DVD.yearToDateFormatter(realease_date_string);
 		 	}else {
 		 		release_date = DVD.getRelease_date();
 		 	}
@@ -212,5 +214,7 @@ public class DVDLibraryView {
     public void displayUnknownCommandBanner() {
         io.print("Unknown Command!!!");
     }
+    
+    
 	
 }

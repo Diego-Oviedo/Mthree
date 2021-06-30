@@ -1,10 +1,14 @@
 package com.diego.DVDLibrary.dto;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 public class DVD {
 	
 	private String SKU;
 	private String title;
-	private String release_date;
+	private LocalDate release_date;
 	private double MPAA_rating;
 	private String author;
 	private String studio;
@@ -34,11 +38,11 @@ public class DVD {
 		this.title = title;
 	}
 
-	public String getRelease_date() {
+	public LocalDate getRelease_date() {
 		return release_date;
 	}
 
-	public void setRelease_date(String release_date) {
+	public void setRelease_date(LocalDate release_date) {
 		this.release_date = release_date;
 	}
 
@@ -139,6 +143,19 @@ public class DVD {
 		return "DVD [SKU=" + SKU + ", title=" + title + ", release_date=" + release_date + ", MPAA_rating="
 				+ MPAA_rating + ", author=" + author + ", studio=" + studio + ", user_note=" + user_note + "]";
 	}
+	
+	//UTILITY METHODS 
+	
+		public static LocalDate yearToDateFormatter(String year) {
+			
+			
+			String date_to_format = "01/01/"+year+"";
+			
+		
+			LocalDate date_formatted = LocalDate.parse(date_to_format, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+			
+			return date_formatted;
+		}
 	
 	
 }
