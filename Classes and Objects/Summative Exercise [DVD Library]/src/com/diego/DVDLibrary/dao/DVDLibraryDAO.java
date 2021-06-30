@@ -16,7 +16,7 @@ public interface DVDLibraryDAO {
 
 	public DVD findDVDByTitle (String title) throws DVDLibraryExceptionDAO;
 	
-	public DVD updateContact (String SKU,DVD dvd) throws DVDLibraryExceptionDAO;
+	public DVD updateDVD (String SKU,DVD dvd) throws DVDLibraryExceptionDAO;
 	
 	
 }

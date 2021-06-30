@@ -67,13 +67,14 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public DVD updateContact(String SKU, DVD dvd) throws DVDLibraryExceptionDAO {
+	public DVD updateDVD(String SKU, DVD dvd) throws DVDLibraryExceptionDAO {
 		loadData();
 		DVD DVD_deleted = DVDs.remove(SKU);
 		writeDVD();
 		String new_SKU = (dvd.getTitle().substring(0, 2).toUpperCase() + dvd.getStudio().substring(0, 2).toUpperCase() + 00 + "" + dvd.getRelease_date());
 		
-		dvd.setSKU(SKU);
+		dvd.setSKU(new_SKU);
+		
 		DVD DVD_updated = DVDs.put(dvd.getSKU(), dvd);
 		writeDVD();
 		return DVD_updated;
@@ -124,7 +125,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 		String[] objectTokens = objectAsText.split(DELIMITER);//the split method will return an array of string  with every piece of data in each element 
 		
 		 
-		String SKU = (objectTokens[0].substring(0, 2).toUpperCase() + objectTokens[5].substring(0, 2).toUpperCase() + 00 + "" + objectTokens[1]);
+		String SKU = (objectTokens[0].substring(0, 2).toUpperCase() + objectTokens[4].substring(0, 2).toUpperCase() + 00 + "" + objectTokens[1]);
         
 		DVD DVD = new DVD(SKU);
 		

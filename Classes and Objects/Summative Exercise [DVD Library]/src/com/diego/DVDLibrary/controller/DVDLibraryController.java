@@ -118,7 +118,7 @@ public class DVDLibraryController {
 		DVD DVD = dao.findDVDByTitle(title);
 		if(DVD != null) {
 			DVD new_DVD = view.getDVDInfoToUpdate(DVD);
-		dao.updateContact(DVD.getSKU(),new_DVD);
+		dao.updateDVD(DVD.getSKU(),new_DVD);
 		view.displayUpdateSuccessBanner();
 		view.displayDevider();
 		}else {
