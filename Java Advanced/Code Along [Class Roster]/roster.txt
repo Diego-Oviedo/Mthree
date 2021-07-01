@@ -1,2 +1,0 @@
-0002::Karolina::Oviedo::C++
-DOVI0043::Diego::Oviedo::Java
