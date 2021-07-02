@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.diego</groupId>
+	<artifactId>DVDLibrary</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>14</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId> <!--groupId is the base package of your project, but this is not a requirement. 
+				The groupId is meant to identify the organization with which the project 
+				is associated. -->
+			<artifactId>spring-context</artifactId> <!--artifactId is the name that will be given to the file into which this 
+				project is packaged. -->
+			<version>5.2.2.RELEASE</version> <!--version indicates the version of the project. -->
+			<!--packaging tag indicates how you would like the project to be packaged -->
+			<!--name tag is, essentially, the name of this project. It does not have 
+				to match the artifactId discussed above. -->
+			<!--scope tag can be used to limit where and how a particular library 
+				will be used -->
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.4.0</version>
+			
+		</dependency>
+
+	</dependencies>
+
+
+</project>
