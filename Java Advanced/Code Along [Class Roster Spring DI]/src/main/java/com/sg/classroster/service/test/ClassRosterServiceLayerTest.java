@@ -7,23 +7,33 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.sg.classroster.dto.*;
 import com.sg.classroster.dao.*;
 import com.sg.classroster.dao.test.*;
 import com.sg.classroster.service.*;
 
-class ClassRosterServiceImplTest {
+class ClassRosterServiceLayerTest {
 
 	private ClassRosterService service;
 	
 	
-	public ClassRosterServiceImplTest() {
+	/*public ClassRosterServiceLayerTest() {
 	    ClassRosterDAO dao = new ClassRosterDaoStubImpl();
 	    ClassRosterAuditDao auditDao = new ClassRosterAuditDaoStubImpl();
 
 	    service = new ClassRosterServiceImpl(dao, auditDao);
-	}
-
+	}*/
+	
+	ApplicationContext ctx = 
+	        new ClassPathXmlApplicationContext("applicationContext.xml");
+	    service = 
+	        ctx.getBean("serviceLayer", ClassRosterServiceLayer.class);
+	
+	
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {//Normally used to set up external resources

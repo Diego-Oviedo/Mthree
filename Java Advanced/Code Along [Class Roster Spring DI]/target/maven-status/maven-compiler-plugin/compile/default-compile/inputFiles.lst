@@ -6,10 +6,10 @@
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/dto/Student.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/service/ClassRosterDuplicateIdException.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/ui/ClassRosterView.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/service/test/ClassRosterServiceLayerTest.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/dao/test/ClassRosterDaoStubImpl.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/dao/test/ClassRosterDaoFileImplTest.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/controller/ClassRosterController.java
-/Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/service/test/ClassRosterServiceImplTest.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/ui/UserIOConsoleImpl.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/dao/RosterDaoFileImpl.java
 /Users/diegooviedo/git/Mthree/Java Advanced/Code Along [Class Roster Spring DI]/src/main/java/com/sg/classroster/service/ClassRosterServiceImpl.java
