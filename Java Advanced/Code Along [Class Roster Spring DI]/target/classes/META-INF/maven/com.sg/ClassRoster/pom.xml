@@ -15,7 +15,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.3.1</version>
-            <scope>test</scope>
+            <!--  <scope>test</scope>  Dependency removed so it will look on my main package as well-->
         </dependency>
     </dependencies>
     <properties>
