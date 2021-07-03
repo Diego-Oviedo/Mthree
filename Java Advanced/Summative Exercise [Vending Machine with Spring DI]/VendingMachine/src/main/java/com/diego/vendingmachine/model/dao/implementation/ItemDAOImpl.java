@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component("item_dao")
 public class ItemDAOImpl implements ItemDAO {
 
-	public List<Item> createItem(Item item, Inventory inventory, int num_units) {	
+	public List<Item> addItem(Item item, Inventory inventory, int num_units) {	
 
 		String SKU = "ITM"+//Prefix
 					item.getItem_description().substring(0,2)+//Description piece
@@ -35,14 +35,14 @@ public class ItemDAOImpl implements ItemDAO {
 		return inventory.getInventory().get(item.getSKU());
 	}
 
-	public List<Item> retreiveItem(Inventory inventory,String SKU) {
+	public List<Item> getItem(Inventory inventory,String SKU) {
 		
 		List<Item> item_found = inventory.getInventory().get(SKU);
 		
 		return item_found;
 	}
 
-	public List<Item> updateItem(Inventory inventory,String SKU, Item item) {
+	public List<Item> editItem(Inventory inventory,String SKU, Item item) {
 		
 		int units_in_stock = inventory.getInventory().get(SKU).size();
 				
@@ -57,12 +57,12 @@ public class ItemDAOImpl implements ItemDAO {
 	
 		item.setSKU(new_SKU);
 		
-		List<Item> item_updated = createItem(item,inventory,units_in_stock);
+		List<Item> item_updated = addItem(item,inventory,units_in_stock);
 		
 		return item_updated;
 	}
 
-	public List<Item> deleteItem(Inventory inventory,String SKU) {
+	public List<Item> removeItem(Inventory inventory,String SKU) {
 		
 		List<Item> item_deleted = inventory.getInventory().remove(SKU);
 		

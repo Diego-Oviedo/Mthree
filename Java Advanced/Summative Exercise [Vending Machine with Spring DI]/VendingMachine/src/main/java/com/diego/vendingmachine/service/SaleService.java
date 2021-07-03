@@ -1,7 +1,7 @@
 package com.diego.vendingmachine.service;
 
-import com.diego.vendingmachine.model.dto.Inventory;
-import com.diego.vendingmachine.model.dto.Sale;
+import com.diego.vendingmachine.model.dao.*;
+import com.diego.vendingmachine.model.dto.*;
 
 public interface SaleService {
 

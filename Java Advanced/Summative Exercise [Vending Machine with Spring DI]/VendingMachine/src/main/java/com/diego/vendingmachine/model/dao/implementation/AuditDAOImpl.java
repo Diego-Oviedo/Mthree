@@ -1,0 +1,36 @@
+package com.diego.vendingmachine.model.dao.implementation;
+
+import com.diego.vendingmachine.model.dao.AuditDAO;
+import com.diego.vendingmachine.model.dao.DataSourceException;
+import com.diego.vendingmachine.model.dao.vendingMachinePersistenceException;
+import java.io.*;
+import java.time.*;
+
+public class AuditDAOImpl implements AuditDAO {
+	
+	public static final String AUDIT_FILE = "_audit.txt";
+
+	public void writeAuditEntry(String entry) throws vendingMachinePersistenceException,DataSourceException{
+		PrintWriter out = null;
+		LocalDateTime timestamp = LocalDateTime.now();
+
+		try {
+		    out = new PrintWriter(new FileWriter(timestamp.getYear()+"-"+ timestamp.getMonthValue()+"_"+timestamp.getHour()+"H"+ timestamp.getMinute()+"M_"+AUDIT_FILE, true));
+		} catch (Exception e) {
+			if(!e.equals(IOException.class)) {
+				throw new DataSourceException("Issue when writting the audit [ERROR WITH FILE]", e.getCause());
+			}
+			throw new vendingMachinePersistenceException("Issue when writting the audit [ERROR PERSISTING OBJECT]", e.getCause());
+		}
+		String date = timestamp.getYear()+"-"+
+					  timestamp.getMonth()+"-"+
+					  timestamp.getDayOfMonth()+" @"+
+					  timestamp.getHour() +":"+
+					  timestamp.getMinute()+":"+
+					  timestamp.getSecond();
+		
+		out.println(date + " -> " + entry);
+		out.flush();
+		}
+
+}

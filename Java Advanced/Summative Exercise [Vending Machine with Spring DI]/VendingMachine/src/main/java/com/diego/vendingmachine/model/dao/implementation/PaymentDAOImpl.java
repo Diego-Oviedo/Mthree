@@ -2,10 +2,12 @@ package com.diego.vendingmachine.model.dao.implementation;
 
 import java.math.*;
 import java.util.*;
+import org.springframework.stereotype.Component;
 import com.diego.vendingmachine.model.dao.*;
 import com.diego.vendingmachine.model.dto.*;
 
-public class ChangeDAOImpl implements ChangeDAO {
+@Component("payment_dao")
+public class PaymentDAOImpl implements PaymentDAO {
 
 	public Map<String,BigDecimal> getChange(BigDecimal payment, BigDecimal unit_price) {
 		

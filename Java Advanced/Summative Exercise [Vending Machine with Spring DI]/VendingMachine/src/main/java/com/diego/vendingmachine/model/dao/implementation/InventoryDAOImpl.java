@@ -33,7 +33,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		FILE_PATH = fILE_PATH;
 	}
 
-	public Inventory createInventory(String file_name) throws DataSourceException,InventoryException{
+	public Inventory addInventory(String file_name) throws DataSourceException,InventoryException{
 		
 		Inventory new_inventory = null;
 		Map<String,List<Item>> new_inventory_structure = null;
@@ -53,7 +53,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		return new_inventory;
 	}
 
-	public Inventory retreiveInventory() throws DataSourceException,InventoryException {
+	public Inventory getInventory() throws DataSourceException,InventoryException {
 		loadData();
 		Inventory inventory = new Inventory();
 		inventory.setInventory(this.inventory);
@@ -61,16 +61,16 @@ public class InventoryDAOImpl implements InventoryDAO {
 		return inventory;
 	}
 
-	public Inventory updateInventory()throws DataSourceException,InventoryException {
+	public Inventory editInventory()throws DataSourceException,InventoryException {
 		writeRecord();
-		return retreiveInventory();
+		return getInventory();
 	}
 
-	public Inventory deleteInventory()throws DataSourceException,InventoryException{
-		Inventory inventory =retreiveInventory();
-		Inventory deleted_inventory = createInventory("BackUp_inventory_"+ LocalDate.now()+".txt");
+	public Inventory removeInventory()throws DataSourceException,InventoryException{
+		Inventory inventory =getInventory();
+		Inventory deleted_inventory = addInventory("BackUp_inventory_"+ LocalDate.now()+".txt");
 		deleted_inventory = inventory;
-		updateInventory();
+		editInventory();
 		
 		inventory.getInventory().clear();
 		
@@ -165,7 +165,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 			
 			String itemAsText;
 			
-			Inventory inventory = this.retreiveInventory();
+			Inventory inventory = this.getInventory();
 			
 			Set<String> keys = inventory.getInventory().keySet();
 			
