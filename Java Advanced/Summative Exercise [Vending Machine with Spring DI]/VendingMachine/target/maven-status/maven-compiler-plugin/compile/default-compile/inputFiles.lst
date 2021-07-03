@@ -1,1 +1,15 @@
-/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/VendingMachine/App.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/controller/VendingMachineController.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/implementation/ChangeDAOImpl.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/InventoryDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/SaleDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/App.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/implementation/ItemDAOImpl.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/ItemDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dto/Change.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dto/Inventory.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/implementation/InventoryDAOImpl.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/ChangeDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dto/Sale.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dto/Item.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/model/dao/implementation/SaleDAOImpl.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/main/java/com/diego/vendingmachine/service/VendingMachineService.java
