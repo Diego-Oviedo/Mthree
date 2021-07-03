@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 import com.diego.DVDLibrary.dao.*;
-import com.diego.DVDLibrary.dto.DVD;
+import com.diego.DVDLibrary.dto.Item;
 
 @Component
 class DVDLibraryDAOImplTest {
@@ -50,9 +50,9 @@ class DVDLibraryDAOImplTest {
 	
 	@Test
 	void testAddGetDVD() throws DVDLibraryExceptionDAO {
-		DVD retreived_dvd;
+		Item retreived_dvd;
 		//ARRANGE
-		DVD dvd_test = new DVD("0001");
+		Item dvd_test = new Item("0001");
 		dvd_test.setTitle("House of Cards");
 		dvd_test.setRelease_date(dvd_test.yearToDateFormatter("2020"));
 		dvd_test.setMPAA_rating(7.9);
@@ -91,7 +91,7 @@ class DVDLibraryDAOImplTest {
 	@Test
 	void testGetAllDVDs() throws DVDLibraryExceptionDAO {
 		//ARRANGE
-		DVD dvd_test_01 = new DVD("0001");
+		Item dvd_test_01 = new Item("0001");
 		dvd_test_01.setTitle("House of Cards");
 		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
@@ -99,7 +99,7 @@ class DVDLibraryDAOImplTest {
 		dvd_test_01.setStudio("Marvel");
 		dvd_test_01.setUser_note("N/A");
 		
-		DVD dvd_test_02 = new DVD("0002");
+		Item dvd_test_02 = new Item("0002");
 		dvd_test_02.setTitle("Breaking Bad");
 		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
@@ -116,7 +116,7 @@ class DVDLibraryDAOImplTest {
 		dao_test.addDVD(sku_dvd_01, dvd_test_01);
 		dao_test.addDVD(sku_dvd_02, dvd_test_02);
 		
-		List<DVD> allDVDs =dao_test.retreiveAllDVDs();
+		List<Item> allDVDs =dao_test.retreiveAllDVDs();
 		
 		//ASSERT
 		assertNotNull(allDVDs,"The list of DVDs must not be null");
@@ -127,10 +127,10 @@ class DVDLibraryDAOImplTest {
 	
 	@Test
 	void testRemoveDVD() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = dao_test.retreiveAllDVDs();
+		List<Item> dvds = dao_test.retreiveAllDVDs();
 
 		//ARRANGE
-		DVD dvd_test_01 = new DVD("HOMA02020");
+		Item dvd_test_01 = new Item("HOMA02020");
 		dvd_test_01.setTitle("House of Cards");
 		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
@@ -138,7 +138,7 @@ class DVDLibraryDAOImplTest {
 		dvd_test_01.setStudio("Marvel");
 		dvd_test_01.setUser_note("N/A");
 		
-		DVD dvd_test_02 = new DVD("BRDR02010");
+		Item dvd_test_02 = new Item("BRDR02010");
 		dvd_test_02.setTitle("Breaking Bad");
 		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
@@ -156,7 +156,7 @@ class DVDLibraryDAOImplTest {
 		
 		//ACT
 		
-		DVD dvd_removed = dao_test.removeDVD(dvd_test_01.getSKU());
+		Item dvd_removed = dao_test.removeDVD(dvd_test_01.getSKU());
 		dvds = dao_test.retreiveAllDVDs();
 
 		//ASSERT
@@ -184,10 +184,10 @@ class DVDLibraryDAOImplTest {
 	
 	@Test
 	void testUpdateDVD() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = dao_test.retreiveAllDVDs();
+		List<Item> dvds = dao_test.retreiveAllDVDs();
 		
 		//ARRANGE
-		DVD dvd_test_01 = new DVD("HOMA02020");
+		Item dvd_test_01 = new Item("HOMA02020");
 		dvd_test_01.setTitle("House of Cards");
 		dvd_test_01.setRelease_date(dvd_test_01.yearToDateFormatter("2020"));
 		dvd_test_01.setMPAA_rating(7.9);
@@ -195,7 +195,7 @@ class DVDLibraryDAOImplTest {
 		dvd_test_01.setStudio("Marvel");
 		dvd_test_01.setUser_note("N/A");
 		
-		DVD dvd_test_02 = new DVD("BRDR02010");
+		Item dvd_test_02 = new Item("BRDR02010");
 		dvd_test_02.setTitle("Breaking Bad");
 		dvd_test_02.setRelease_date(dvd_test_02.yearToDateFormatter("2010"));
 		dvd_test_02.setMPAA_rating(9.9);
@@ -208,7 +208,7 @@ class DVDLibraryDAOImplTest {
 		dao_test.addDVD(dvd_test_02.getSKU(), dvd_test_02);
 		dvds = dao_test.retreiveAllDVDs();
 		
-		DVD dvd_test_01_updated = new DVD();
+		Item dvd_test_01_updated = new Item();
 		dvd_test_01_updated.setTitle("Spiderman");//Data modified
 		dvd_test_01_updated.setRelease_date(dvd_test_01_updated.yearToDateFormatter("2015"));//Data modified
 		dvd_test_01_updated.setMPAA_rating(7.9);
@@ -216,7 +216,7 @@ class DVDLibraryDAOImplTest {
 		dvd_test_01_updated.setStudio("Dreamworks");//Data modified
 		dvd_test_01_updated.setUser_note("N/A");
 		
-		DVD dvd_test_02_updated = new DVD();
+		Item dvd_test_02_updated = new Item();
 		dvd_test_02_updated.setTitle("UP");//Data modified
 		dvd_test_02_updated.setRelease_date(dvd_test_02_updated.yearToDateFormatter("2017"));//Data modified
 		dvd_test_02_updated.setMPAA_rating(9.9);
@@ -230,8 +230,8 @@ class DVDLibraryDAOImplTest {
 		String SKU_02 = dvd_test_02.getSKU();
 
 		
-		DVD dvd_updates_01 = dao_test.updateDVD(SKU_01, dvd_test_01_updated);
-		DVD dvd_updates_02 = dao_test.updateDVD(SKU_02, dvd_test_02_updated);
+		Item dvd_updates_01 = dao_test.updateDVD(SKU_01, dvd_test_01_updated);
+		Item dvd_updates_02 = dao_test.updateDVD(SKU_02, dvd_test_02_updated);
 		dvds = dao_test.retreiveAllDVDs();
 		
 		//ASSERT

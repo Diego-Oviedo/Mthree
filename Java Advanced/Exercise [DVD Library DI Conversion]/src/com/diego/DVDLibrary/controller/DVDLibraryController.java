@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.diego.DVDLibrary.dao.*;
-import com.diego.DVDLibrary.dto.DVD;
+import com.diego.DVDLibrary.dto.Item;
 import com.diego.DVDLibrary.view.ui.DVDLibraryView;
 
 @Component("controller")
@@ -97,7 +97,7 @@ public class DVDLibraryController {
 		view.displayDevider();
 		view.displayDVDListBanner();
 		view.displayDVDsLoaded(dao.retreiveNumDVDs());
-		List<DVD> DVDs = dao.retreiveAllDVDs();
+		List<Item> DVDs = dao.retreiveAllDVDs();
 		view.displayDVDList(DVDs);
 		view.displayDevider();
     }
@@ -105,7 +105,7 @@ public class DVDLibraryController {
 	private void addDVD() throws DVDLibraryExceptionDAO {
 		view.displayDevider();
 		view.displayAddADVDBanner();
-		DVD DVD = view.getNewDVDInfo();
+		Item DVD = view.getNewDVDInfo();
 		dao.addDVD(DVD.getSKU(), DVD);
 		view.displayCreateSuccessBanner();
 		view.displayDevider();
@@ -115,7 +115,7 @@ public class DVDLibraryController {
 		view.displayDevider();
 		view.displayFindDVDBanner();
 		String title = view.getDVDTitle();
-		DVD DVD = dao.findDVDByTitle(title);
+		Item DVD = dao.findDVDByTitle(title);
 		if(DVD != null) {
 		view.displayDVDBanner();
 		view.displayDVD(DVD);
@@ -132,9 +132,9 @@ public class DVDLibraryController {
 		view.displayDevider();
 		view.displayRemoveDVDBanner();
 		String title = view.getDVDTitle();
-		DVD DVD = dao.findDVDByTitle(title);
+		Item DVD = dao.findDVDByTitle(title);
 		if(DVD != null) {
-			DVD DVD_removed = dao.removeDVD(DVD.getSKU());
+			Item DVD_removed = dao.removeDVD(DVD.getSKU());
 		view.displayRemoveResult(DVD_removed);
 		view.displayDevider();
 		}else {
@@ -148,9 +148,9 @@ public class DVDLibraryController {
 		view.displayDevider();
 		view.displayUpdateDVDBanner();
 		String title = view.getDVDTitle();
-		DVD DVD = dao.findDVDByTitle(title);
+		Item DVD = dao.findDVDByTitle(title);
 		if(DVD != null) {
-			DVD new_DVD = view.getDVDInfoToUpdate(DVD);
+			Item new_DVD = view.getDVDInfoToUpdate(DVD);
 		dao.updateDVD(DVD.getSKU(),new_DVD);
 		view.displayUpdateSuccessBanner();
 		view.displayDevider();
@@ -173,7 +173,7 @@ public class DVDLibraryController {
     	view.displayDevider();
     	view.displayFindDVDsReleasedInTheLastNYearsBanner();
     	int year = view.displayGetNyear();
-    	List <DVD> dvds_filttered = dao.retreiveDVDsFromTheLastGivenYears(year);
+    	List <Item> dvds_filttered = dao.retreiveDVDsFromTheLastGivenYears(year);
     	if(dvds_filttered != Collections.EMPTY_LIST) {
     		view.displayDVDList(dvds_filttered);
     		view.displayDevider();
@@ -188,7 +188,7 @@ public class DVDLibraryController {
 	   view.displayDevider();
 	   view.displayFindDVDsByMPAARatingBanner();
 	   double mppa = view.displayGetMPAARating();
-	   List <DVD> dvds_filttered = dao.retreiveDVDsbyMPAARating(mppa);
+	   List <Item> dvds_filttered = dao.retreiveDVDsbyMPAARating(mppa);
 	   if(dvds_filttered != Collections.EMPTY_LIST) {
    		view.displayDVDList(dvds_filttered);
    		view.displayDevider();
@@ -203,7 +203,7 @@ public class DVDLibraryController {
 	   view.displayDevider();
 	   view.displayFindDVDByDirectorBanner();
 	   String director = view.displayGetDirector();
-	   List <DVD> dvds_filttered = dao.retreiveDVDsbyDirector(director);
+	   List <Item> dvds_filttered = dao.retreiveDVDsbyDirector(director);
 	   if(dvds_filttered != Collections.EMPTY_LIST) {
    		view.displayDVDList(dvds_filttered);
    		view.displayDevider();
@@ -218,7 +218,7 @@ public class DVDLibraryController {
 	   view.displayDevider();
 	   view.displayFindDVDByStudioBanner();
 	   String studio = view.displayGetStudio();
-	   List <DVD> dvds_filttered = dao.retreiveDVDsbyStudio(studio);
+	   List <Item> dvds_filttered = dao.retreiveDVDsbyStudio(studio);
 	   if(dvds_filttered != Collections.EMPTY_LIST) {
    		view.displayDVDList(dvds_filttered);
    		view.displayDevider();
@@ -248,7 +248,7 @@ public class DVDLibraryController {
    private void getNewestDVD() throws DVDLibraryExceptionDAO {
 		view.displayDevider();
 		view.displayFindNewestDVDBanner();
-		DVD DVD = dao.findNewestDVD();
+		Item DVD = dao.findNewestDVD();
 		if(DVD != null) {
 		view.displayDVDBanner();
 		view.displayDVD(DVD);
@@ -264,7 +264,7 @@ public class DVDLibraryController {
    private void getOldestDVD() throws DVDLibraryExceptionDAO {
 		view.displayDevider();
 		view.displayFindOldestDVDBanner();
-		DVD DVD = dao.findOldestDVD();
+		Item DVD = dao.findOldestDVD();
 		if(DVD != null) {
 		view.displayDVDBanner();
 		view.displayDVD(DVD);

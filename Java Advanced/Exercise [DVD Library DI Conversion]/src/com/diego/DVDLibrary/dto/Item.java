@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
-public class DVD {
+public class Item {
 	
 	private String SKU;
 	private String title;
@@ -14,11 +14,11 @@ public class DVD {
 	private String studio;
 	private String user_note;
 	
-	public DVD(String sKU) {
+	public Item(String sKU) {
 		super();
 		SKU = sKU;
 	}
-	public DVD() {
+	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -102,7 +102,7 @@ public class DVD {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DVD other = (DVD) obj;
+		Item other = (Item) obj;
 		if (Double.doubleToLongBits(MPAA_rating) != Double.doubleToLongBits(other.MPAA_rating))
 			return false;
 		if (SKU == null) {

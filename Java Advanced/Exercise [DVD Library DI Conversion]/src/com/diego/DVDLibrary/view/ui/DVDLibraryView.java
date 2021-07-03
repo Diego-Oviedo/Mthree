@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.diego.DVDLibrary.dto.DVD;
+import com.diego.DVDLibrary.dto.Item;
 
 @Component
 public class DVDLibraryView {
@@ -52,7 +52,7 @@ public class DVDLibraryView {
 	 	io.print("\n____________________________________________________________________________________________\n");
     }
 	
-	public DVD getNewDVDInfo() {
+	public Item getNewDVDInfo() {
         String title = io.readString("Please enter Title:");
         String release_date = io.readString("Please enter Release date:");
         double MPAA_rating = io.readDouble("Please enter MPAA rating (e.g. 7.5):",1,10);
@@ -62,11 +62,11 @@ public class DVDLibraryView {
         
         String SKU = (title.substring(0, 2).toUpperCase() + studio.substring(0, 2).toUpperCase() + 00 + "" + release_date);
         
-        DVD currentDVD = new DVD(SKU);
+        Item currentDVD = new Item(SKU);
         
         currentDVD.setSKU(SKU);
         currentDVD.setTitle(title);
-        currentDVD.setRelease_date(DVD.yearToDateFormatter(release_date));
+        currentDVD.setRelease_date(Item.yearToDateFormatter(release_date));
         currentDVD.setMPAA_rating(MPAA_rating);
         currentDVD.setAuthor(author);
         currentDVD.setStudio(studio);
@@ -75,7 +75,7 @@ public class DVDLibraryView {
         return currentDVD;
     }
 	
-	public DVD getDVDInfoToUpdate(DVD DVD) {
+	public Item getDVDInfoToUpdate(Item DVD) {
 			String title = null;
 	        LocalDate release_date = null;
 	        double MPAA_rating = 0.0;
@@ -123,7 +123,7 @@ public class DVDLibraryView {
 		 	
 		 	String SKU = (title.substring(0, 2).toUpperCase() + studio.substring(0, 2).toUpperCase() + 00 + "" + release_date);
 
-		 	DVD DVD_to_update = new DVD(SKU);
+		 	Item DVD_to_update = new Item(SKU);
 		 	
 		 	DVD_to_update.setSKU(SKU);
 		 	DVD_to_update.setTitle(title);
@@ -136,8 +136,8 @@ public class DVDLibraryView {
 	        return DVD_to_update;
 	    }
 	
-	public void displayDVDList(List<DVD> DVDList) {
-        for (DVD currentDVD : DVDList) {
+	public void displayDVDList(List<Item> DVDList) {
+        for (Item currentDVD : DVDList) {
             String DVDInfo = String.format("%s %s %s %s %s %s %s",
                   "SKU: "+currentDVD.getSKU()+"\n",
                   "● Title: "+currentDVD.getTitle()+"\n",
@@ -152,7 +152,7 @@ public class DVDLibraryView {
     }
 
     
-    public void displayDVD(DVD DVD) {
+    public void displayDVD(Item DVD) {
         if (DVD != null) { 
         	String DVDInfo = String.format("%s %s %s %s %s %s %s",
                     "SKU: "+DVD.getSKU()+"\n",
@@ -192,7 +192,7 @@ public class DVDLibraryView {
         return io.readString("Please enter the DVD's SKU.");
     }
     
-	public void displayRemoveResult(DVD dvd) {
+	public void displayRemoveResult(Item dvd) {
         io.readString("DVD was successfully removed.\nPlease hit 0 and enter to continue");
     }
 	

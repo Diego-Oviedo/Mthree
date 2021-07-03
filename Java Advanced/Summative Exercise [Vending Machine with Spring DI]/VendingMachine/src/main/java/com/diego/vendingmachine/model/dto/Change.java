@@ -1,5 +1,20 @@
 package com.diego.vendingmachine.model.dto;
 
-public class Change {
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
+public class Change {
+	
+	public enum denominations {
+		QUARTER,
+		DIME,
+		NICKEL,
+		PENNY;
+		{
+			
+		}
+
+	
+	}
+	
 }

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.diego.DVDLibrary.dto.DVD;
+import com.diego.DVDLibrary.dto.Item;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -24,7 +24,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 
 	public static final String DELIMITER = "::";
 	
-	private Map<String, DVD> DVDs = new HashMap<>();
+	private Map<String, Item> DVDs = new HashMap<>();
 	
 
 	public DVDLibraryDAOImpl() {
@@ -39,16 +39,16 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	
 
 	@Override
-	public DVD addDVD(String SKU, DVD dvd) throws DVDLibraryExceptionDAO {
-		DVD DVD = DVDs.put(SKU, dvd);
+	public Item addDVD(String SKU, Item dvd) throws DVDLibraryExceptionDAO {
+		Item DVD = DVDs.put(SKU, dvd);
 		writeDVD();
 		return DVD;
 	}
 
 	@Override
-	public DVD removeDVD(String SKU) throws DVDLibraryExceptionDAO {
+	public Item removeDVD(String SKU) throws DVDLibraryExceptionDAO {
 		loadData();
-		DVD DVD = DVDs.remove(SKU);
+		Item DVD = DVDs.remove(SKU);
 		writeDVD();
 		return DVD;
 	}
@@ -60,20 +60,20 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public List<DVD> retreiveAllDVDs() throws DVDLibraryExceptionDAO {
+	public List<Item> retreiveAllDVDs() throws DVDLibraryExceptionDAO {
 		loadData();
 		return new ArrayList(DVDs.values());
 	}
 
 	@Override
-	public DVD findDVDByTitle(String title) throws DVDLibraryExceptionDAO {
+	public Item findDVDByTitle(String title) throws DVDLibraryExceptionDAO {
 		loadData();
 		
-		DVD DVD = null;
+		Item DVD = null;
 		
-		List<DVD> DVDs = retreiveAllDVDs();
+		List<Item> DVDs = retreiveAllDVDs();
 		 
-		for (DVD current_DVD : DVDs) {
+		for (Item current_DVD : DVDs) {
 			
 			if(current_DVD.getTitle().equalsIgnoreCase(title)) {
 				DVD = current_DVD;
@@ -85,14 +85,14 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public DVD updateDVD(String SKU, DVD dvd) throws DVDLibraryExceptionDAO {
-		DVD DVD_deleted = removeDVD(SKU);
+	public Item updateDVD(String SKU, Item dvd) throws DVDLibraryExceptionDAO {
+		Item DVD_deleted = removeDVD(SKU);
 		
 		String new_SKU = (dvd.getTitle().substring(0, 2).toUpperCase() + dvd.getStudio().substring(0, 2).toUpperCase() + 00 + "" + dvd.getRelease_date().getYear());
 		
 		dvd.setSKU(new_SKU);
 		
-		DVD DVD_updated = addDVD(dvd.getSKU(), dvd);
+		Item DVD_updated = addDVD(dvd.getSKU(), dvd);
 		
 		return DVD_updated;
 	}
@@ -117,7 +117,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	    String currentLine;
 	    String SKU;
 	    
-	    DVD currentDVD;
+	    Item currentDVD;
 	    	    
 	    while (reader.hasNextLine()) {//while there is data to persist
 	        
@@ -137,14 +137,14 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 	
 	
-	private DVD unmarshallObject(String objectAsText){
+	private Item unmarshallObject(String objectAsText){
 		
 		String[] objectTokens = objectAsText.split(DELIMITER);//the split method will return an array of string  with every piece of data in each element 
 		
 		 
 		String SKU = (objectTokens[0].substring(0, 2).toUpperCase() + objectTokens[4].substring(0, 2).toUpperCase() + 00 + "" + objectTokens[1]);
         
-		DVD DVD = new DVD(SKU);
+		Item DVD = new Item(SKU);
 		
 		DVD.setTitle(objectTokens[0]);
 		
@@ -161,7 +161,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	    return DVD;
 	}
 	
-	private String marshallObject(DVD DVD){
+	private String marshallObject(Item DVD){
 		String DVDAsText = DVD.getTitle() + DELIMITER; 
 		DVDAsText += DVD.getRelease_date().getYear()+ DELIMITER;
 		DVDAsText += DVD.getMPAA_rating() + DELIMITER;
@@ -183,8 +183,8 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	    }
 		
 		String DVDAsText;
-	    List<DVD> DVDs = this.retreiveAllDVDs();
-	    for (DVD DVD : DVDs) {
+	    List<Item> DVDs = this.retreiveAllDVDs();
+	    for (Item DVD : DVDs) {
 	        
 	    	DVDAsText = marshallObject(DVD);
 	        // write the object to the file
@@ -198,8 +198,8 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public List<DVD> retreiveDVDsFromTheLastGivenYears(int numberOfYearsBack) throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public List<Item> retreiveDVDsFromTheLastGivenYears(int numberOfYearsBack) throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
 		LocalDate date_calculated = LocalDate.now();
 		
@@ -209,29 +209,29 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public List<DVD> retreiveDVDsbyMPAARating(double rating) throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public List<Item> retreiveDVDsbyMPAARating(double rating) throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
 		return dvds.stream().filter((dvd) -> dvd.getMPAA_rating() == rating).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<DVD> retreiveDVDsbyDirector(String director) throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public List<Item> retreiveDVDsbyDirector(String director) throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
 		return dvds.stream().filter((dvd) -> dvd.getAuthor().toLowerCase().contains(director.toLowerCase())).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<DVD> retreiveDVDsbyStudio(String studio) throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public List<Item> retreiveDVDsbyStudio(String studio) throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
 		return dvds.stream().filter((dvd) -> dvd.getStudio().toLowerCase().contains(studio.toLowerCase())).collect(Collectors.toList());
 	}
 
 	@Override
 	public int getDVDsAverageOfYear() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+		List<Item> dvds = retreiveAllDVDs();
 		
 		OptionalDouble average = dvds.stream().mapToInt((dvd) -> dvd.getRelease_date().getYear()).average();
 		
@@ -239,7 +239,6 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 		
 		average_string = average_string.substring(15,19);
 		
-		System.out.println("Sting value of average_string : " + average_string);
 		
 		int actual_average = Integer.valueOf(average_string);
 		
@@ -247,10 +246,10 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public DVD findNewestDVD() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public Item findNewestDVD() throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
-		List<DVD> result = dvds.stream().sorted((o1, o2)->  String.valueOf(o1.getRelease_date().getYear()).
+		List<Item> result = dvds.stream().sorted((o1, o2)->  String.valueOf(o1.getRelease_date().getYear()).
                 compareTo(String.valueOf(o1.getRelease_date().getYear()))).
                 collect(Collectors.toList());
 		
@@ -258,10 +257,10 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 	}
 
 	@Override
-	public DVD findOldestDVD() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+	public Item findOldestDVD() throws DVDLibraryExceptionDAO {
+		List<Item> dvds = retreiveAllDVDs();
 		
-		List<DVD> result = dvds.stream().sorted((o1, o2)->  String.valueOf(o1.getRelease_date().getYear()).
+		List<Item> result = dvds.stream().sorted((o1, o2)->  String.valueOf(o1.getRelease_date().getYear()).
                 compareTo(String.valueOf(o1.getRelease_date().getYear()))).
                 collect(Collectors.toList());
 		
@@ -270,7 +269,7 @@ public class DVDLibraryDAOImpl implements DVDLibraryDAO {
 
 	@Override
 	public int getDVDsAverageNotesPerMovie() throws DVDLibraryExceptionDAO {
-		List<DVD> dvds = retreiveAllDVDs();
+		List<Item> dvds = retreiveAllDVDs();
 		
 		int dvds_w_notes =dvds.stream()
         		.filter((dvd) -> dvd.getUser_note() != null ).collect(Collectors.toList()).size();
