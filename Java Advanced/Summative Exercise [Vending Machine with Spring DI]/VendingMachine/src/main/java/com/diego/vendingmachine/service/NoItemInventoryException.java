@@ -1,0 +1,15 @@
+package com.diego.vendingmachine.service;
+
+public class NoItemInventoryException extends Exception{
+
+	public NoItemInventoryException(String message, Throwable cause) {
+		super(message, cause);
+		
+	}
+
+	public NoItemInventoryException(String message) {
+		super(message);
+		
+	}
+	
+}

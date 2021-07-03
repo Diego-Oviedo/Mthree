@@ -42,9 +42,9 @@ public class ItemDAOImpl implements ItemDAO {
 		return item_found;
 	}
 
-	public List<Item> editItem(Inventory inventory,String SKU, Item item) {
+	public List<Item> editItem(Inventory inventory,String SKU, Item item,int units_in_stock) {
 		
-		int units_in_stock = inventory.getInventory().get(SKU).size();
+		units_in_stock = (inventory.getInventory().get(SKU).size()-1) + units_in_stock;
 				
 		inventory.getInventory().remove(SKU);
 		

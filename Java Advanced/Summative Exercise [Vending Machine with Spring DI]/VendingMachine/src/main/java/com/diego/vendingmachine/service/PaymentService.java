@@ -8,6 +8,7 @@ import com.diego.vendingmachine.model.dto.*;
 
 public interface PaymentService {
 	
-	public Map<String,BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price);
-
+	public Map<String,BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price) throws InsufficientFundsException;
+	
+	public BigDecimal refundCustomer(BigDecimal amount_refunded);
 }

@@ -6,6 +6,9 @@ import com.diego.vendingmachine.model.dao.vendingMachinePersistenceException;
 import java.io.*;
 import java.time.*;
 
+import org.springframework.stereotype.Component;
+
+@Component("audit_dao")
 public class AuditDAOImpl implements AuditDAO {
 	
 	public static final String AUDIT_FILE = "_audit.txt";
