@@ -22,7 +22,7 @@ public class SaleServiceImpl implements SaleService {
 	public Item entrySale(Inventory inventory, Sale sale) throws NoItemInventoryException, 
 																vendingMachinePersistenceException,
 																DataSourceException{
-		 
+		  
 		Item item_sold = null;
 		
 		if (!inventory.getInventory().containsKey(sale.getSold_item().getSKU())) {//If item does not exists in inventory

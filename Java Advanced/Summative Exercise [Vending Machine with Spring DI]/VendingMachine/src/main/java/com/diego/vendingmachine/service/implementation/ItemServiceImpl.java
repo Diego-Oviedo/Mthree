@@ -10,7 +10,7 @@ import com.diego.vendingmachine.service.ItemService;
 
 @Component("item_service")
 public class ItemServiceImpl implements ItemService {
-
+ 
 	@Autowired
 	@Qualifier("audit_dao")
 	private AuditDAO audit_dao;

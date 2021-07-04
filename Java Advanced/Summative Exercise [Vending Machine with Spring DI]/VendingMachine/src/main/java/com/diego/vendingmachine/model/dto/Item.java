@@ -2,16 +2,19 @@ package com.diego.vendingmachine.model.dto;
 
 import java.math.BigDecimal;
 
-public class Item {
+import javax.swing.ImageIcon;
+
+public class Item { 
 	
 	private String SKU;
 	private String item_description;
 	private BigDecimal unit_price;
-	
-	public Item() {
+	private ImageIcon icon;
+	 
+	public Item() { 
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	} 
 
 	public Item(String sKU, String item_description, BigDecimal unit_price) {
 		super();
@@ -42,6 +45,14 @@ public class Item {
 
 	public void setUnit_price(BigDecimal unit_price) {
 		this.unit_price = unit_price;
+	}
+
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
 	}
 
 	@Override

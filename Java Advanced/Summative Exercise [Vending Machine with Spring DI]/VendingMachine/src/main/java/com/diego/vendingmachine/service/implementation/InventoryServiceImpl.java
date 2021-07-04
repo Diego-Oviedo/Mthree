@@ -9,7 +9,7 @@ import com.diego.vendingmachine.service.*;
 
 @Component("inventory_service")
 public class InventoryServiceImpl implements InventoryService {
-	
+	 
 	@Autowired
 	@Qualifier("audit_dao")
 	private AuditDAO audit_dao;

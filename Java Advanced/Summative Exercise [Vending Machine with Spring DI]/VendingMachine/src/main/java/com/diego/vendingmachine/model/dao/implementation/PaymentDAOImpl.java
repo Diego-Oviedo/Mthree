@@ -17,7 +17,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 		BigDecimal NICKEL = new BigDecimal("0.05").setScale(2, RoundingMode.HALF_UP);
 		BigDecimal PENNY = new BigDecimal("0.1").setScale(2, RoundingMode.HALF_UP);
 		
-		
+		 
 		BigDecimal reminder = payment.setScale(2, RoundingMode.UNNECESSARY).subtract(unit_price.setScale(2, RoundingMode.UNNECESSARY));
 		
 		BigDecimal dollars = reminder.divide(DOLLAR);

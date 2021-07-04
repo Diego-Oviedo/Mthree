@@ -6,7 +6,7 @@ public class Sale {
 	
 	private String sales_number;
 	private LocalDate sales_date;
-	private Item sold_item;
+	private Item sold_item; 
 	
 	public Sale() {
 		super();

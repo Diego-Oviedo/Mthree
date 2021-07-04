@@ -10,6 +10,8 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 
+import javax.swing.ImageIcon;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -30,7 +32,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 	
 	public InventoryDAOImpl(String fILE_PATH) {
 		super();
-		FILE_PATH = fILE_PATH;
+		FILE_PATH = fILE_PATH; 
 	}
 
 	public Inventory addInventory(String file_name) throws DataSourceException,InventoryException{
@@ -122,7 +124,9 @@ public class InventoryDAOImpl implements InventoryDAO {
 
 			item.setUnit_price(new BigDecimal((objectTokens[2])).setScale(2, RoundingMode.HALF_UP));
 			
-			int units_in_stock = Integer.valueOf((objectTokens[3]));
+			item.setIcon(new ImageIcon(objectTokens[3]));
+			
+			int units_in_stock = Integer.valueOf((objectTokens[4]));
 			
 			String SKU = "ITM" + // Prefix
 					item.getItem_description().substring(0, 2) + // Description piece
@@ -149,6 +153,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 			String itemAsText = item.getSKU() + DELIMITER; 
 			itemAsText += item.getItem_description()+ DELIMITER;
 			itemAsText += item.getUnit_price().setScale(2, RoundingMode.HALF_UP) + DELIMITER;
+			itemAsText += item.getIcon().getDescription()+ DELIMITER;
 			itemAsText += units_in_stock;
 			
 			return itemAsText;
