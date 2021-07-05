@@ -1,0 +1,4 @@
+2021-JULY-4 @22:18:14 -> SALE_item [ITM004 - Snickers] {item sold}
+2021-JULY-4 @22:18:18 -> SALE_item [ITM001 - Lays] {item sold}
+2021-JULY-4 @22:18:24 -> SALE_item [ITM006 - Naya Water] {item sold}
+2021-JULY-4 @22:18:54 -> SALE_item [ITM001 - Lays] {item sold}

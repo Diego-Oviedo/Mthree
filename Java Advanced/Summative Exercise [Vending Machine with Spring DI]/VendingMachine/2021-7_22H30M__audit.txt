@@ -1,0 +1,12 @@
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMLas000JULY21 - Lays] {item added}
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMKi 000JULY21 - Kit Kat] {item added}
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMM&'000JULY21 - M&M's] {item added}
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMSnc000JULY21 - Snickers] {item added}
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMTrd000JULY21 - Trident Gum] {item added}
+2021-JULY-4 @22:30:24 -> CREATE_item [ITMNaa000JULY21 - Naya Water] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMLas000JULY21 - Lays] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMKi 000JULY21 - Kit Kat] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMM&'000JULY21 - M&M's] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMSnc000JULY21 - Snickers] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMTrd000JULY21 - Trident Gum] {item added}
+2021-JULY-4 @22:30:39 -> CREATE_item [ITMNaa000JULY21 - Naya Water] {item added}

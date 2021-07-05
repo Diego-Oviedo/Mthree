@@ -1,0 +1,2 @@
+2021-JULY-4 @21:38:19 -> SALE_item [ITM005 - Trident Gum] {item sold}
+2021-JULY-4 @21:38:37 -> SALE_item [ITM005 - Trident Gum] {item sold}
