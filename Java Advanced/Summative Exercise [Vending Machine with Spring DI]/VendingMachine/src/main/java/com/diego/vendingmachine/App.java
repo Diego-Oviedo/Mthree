@@ -2,11 +2,9 @@ package com.diego.vendingmachine;
 
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.diego.vendingmachine.controller.VendingMachineController;
-import com.diego.vendingmachine.model.dao.DataSourceException;
-import com.diego.vendingmachine.model.dao.InventoryException;
-import com.diego.vendingmachine.model.dao.vendingMachinePersistenceException;
-import com.diego.vendingmachine.service.InsufficientFundsException;
+import com.diego.vendingmachine.controller.*;
+import com.diego.vendingmachine.model.dao.*;
+import com.diego.vendingmachine.service.*;
 
 public class App 
 {
