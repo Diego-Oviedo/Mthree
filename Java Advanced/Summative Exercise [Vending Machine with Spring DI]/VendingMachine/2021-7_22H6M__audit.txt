@@ -1,1 +1,0 @@
-2021-JULY-4 @22:6:19 -> SALE_item [ITM004 - Snickers] {item sold}
