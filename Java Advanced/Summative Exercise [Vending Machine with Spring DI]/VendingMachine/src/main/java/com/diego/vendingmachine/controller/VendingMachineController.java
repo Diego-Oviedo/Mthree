@@ -1,10 +1,8 @@
 package com.diego.vendingmachine.controller;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -51,10 +49,25 @@ public class VendingMachineController {
 			entryASale(item_selected,payment);
 			
 		} catch (Exception e) {
-
-			System.out.println("error: " + e.getCause() );
-			e.printStackTrace();
-			run();
+			if (e.equals(DataSourceException.class)) {
+				run();
+				throw new DataSourceException(e.getMessage().toString(),e.getCause());	
+			} else if (e.equals(InventoryException.class)) {
+				run();
+				throw new InventoryException(e.getMessage().toString(),e.getCause());
+			} else if (e.equals(InsufficientFundsException.class)) {
+				run();
+				throw new InsufficientFundsException(e.getMessage().toString(),e.getCause());
+			} else if (e.equals(vendingMachinePersistenceException.class)) {
+				run();
+				throw new vendingMachinePersistenceException(e.getMessage().toString(),e.getCause());
+			}else {
+				int exception_result;
+				exception_result = view.print("Error", e.getCause().toString() + "\n" + e.getMessage().toString());
+				if (exception_result == 1) {
+					run();
+				}
+			}
 		}
 
 	}
@@ -123,14 +136,26 @@ public class VendingMachineController {
 				}
 
 			} catch (Exception e) {
-				if (e.equals(InsufficientFundsException.class)) {
-					view.readInt("Insufficient Funds", e.getCause().toString());
-					BigDecimal refund = payment_service.refundCustomer(payment);
-					view.readString("Refund", refund.toString() + "$ has be refunded");
-				} else if (e.equals(NullPointerException.class)) {
+				
+				if (e.equals(DataSourceException.class)) {
 					run();
+					throw new DataSourceException(e.getMessage().toString(),e.getCause());	
+				} else if (e.equals(InventoryException.class)) {
+					run();
+					throw new InventoryException(e.getMessage().toString(),e.getCause());
+				} else if (e.equals(InsufficientFundsException.class)) {
+					run();
+					throw new InsufficientFundsException(e.getMessage().toString(),e.getCause());
+				} else if (e.equals(vendingMachinePersistenceException.class)) {
+					run();
+					throw new vendingMachinePersistenceException(e.getMessage().toString(),e.getCause());
+				}else {
+					int exception_result;
+					exception_result = view.print("Error", e.getCause().toString() + "\n" + e.getMessage().toString());
+					if (exception_result == 1) {
+						run();
+					}
 				}
-
 			}
 		}
 
