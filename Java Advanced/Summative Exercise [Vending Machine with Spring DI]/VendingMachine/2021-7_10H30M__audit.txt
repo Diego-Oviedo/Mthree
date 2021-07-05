@@ -1,0 +1,3 @@
+2021-JULY-5 @10:30:49 -> SALE_item [ITMLA000JULY21 - Lays] {item sold}
+2021-JULY-5 @10:30:54 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
+2021-JULY-5 @10:30:56 -> SALE_item [ITMNA000JULY21 - Naya Water] {item sold}
