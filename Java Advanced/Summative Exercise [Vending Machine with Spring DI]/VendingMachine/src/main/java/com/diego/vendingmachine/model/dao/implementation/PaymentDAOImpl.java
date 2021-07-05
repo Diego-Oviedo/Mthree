@@ -20,25 +20,25 @@ public class PaymentDAOImpl implements PaymentDAO {
 		 
 		BigDecimal reminder = payment.setScale(2, RoundingMode.UNNECESSARY).subtract(unit_price.setScale(2, RoundingMode.UNNECESSARY));
 		
-		BigDecimal dollars = reminder.divide(DOLLAR);
+		BigDecimal dollars = reminder.divide(DOLLAR).setScale(0, RoundingMode.DOWN);
 		reminder = reminder.remainder(DOLLAR);
 		dollars.setScale(0, RoundingMode.HALF_EVEN);
 		
-		BigDecimal quarters = reminder.divide(QUARTER);
+		BigDecimal quarters = reminder.divide(QUARTER).setScale(0, RoundingMode.DOWN);
 		reminder = reminder.remainder(QUARTER);
 		quarters.setScale(0, RoundingMode.HALF_EVEN);
 		
-		BigDecimal dimes = reminder.divide(DIME);
+		BigDecimal dimes = reminder.divide(DIME).setScale(0, RoundingMode.DOWN);
 		reminder = reminder.remainder(DIME);
 		dimes.setScale(0, RoundingMode.HALF_EVEN);
 		
-		BigDecimal nickels = reminder.divide(NICKEL);
+		BigDecimal nickels = reminder.divide(NICKEL).setScale(0, RoundingMode.HALF_EVEN);
 		reminder = reminder.remainder(NICKEL);
 		nickels.setScale(0, RoundingMode.HALF_EVEN);
 		
-		BigDecimal pennies = reminder.divide(PENNY);
+		BigDecimal pennies = reminder.divide(PENNY).setScale(0, RoundingMode.CEILING);
 		reminder = reminder.remainder(PENNY);
-		pennies.setScale(0, RoundingMode.HALF_EVEN);
+		pennies.setScale(0, RoundingMode.CEILING);
 				
 		Map<String,BigDecimal> change = new HashMap<String,BigDecimal>();
 		

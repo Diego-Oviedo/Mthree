@@ -21,10 +21,12 @@ public class PaymentServiceImpl implements PaymentService {
 	public Map<String, BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price) throws InsufficientFundsException{
 		
 		int result = payment.compareTo(unit_price);
-		Map<String, BigDecimal> change;
+		Map<String, BigDecimal> change = null;
 		
 		if (result == -1 ) {//If payment is less than the unit price 
-			throw new InsufficientFundsException("Insufficient Funds...");
+			//throw new InsufficientFundsException("Insufficient Funds...");
+			
+			change = change;
 		}else {
 			
 			change = dao.getChange(payment, unit_price);

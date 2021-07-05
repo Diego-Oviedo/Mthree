@@ -21,13 +21,13 @@ import com.diego.vendingmachine.model.dto.*;
 @Component("iventory_dao")
 public class InventoryDAOImpl implements InventoryDAO {
 	
-	public final String FILE_PATH;
+	public String FILE_PATH = "src/main/resources/";
 	public static final String DELIMITER = "::";
 	private Map<String,List<Item>> inventory = new HashMap<String,List<Item>>();
 
 	public InventoryDAOImpl() {
 		super();
-		FILE_PATH = "inventory_data.txt";
+		FILE_PATH = FILE_PATH + "inventory_data.txt";
 	}
 	
 	public InventoryDAOImpl(String fILE_PATH) {
@@ -102,7 +102,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		        
 		        currentLine = reader.nextLine();
 
-		        current_item = unmarshallObject(currentLine); //Convert a line into an object 
+		        current_item = unmarshallObject(currentLine); //Convert a line into an object
 		        
 		        inventory.put(current_item.get(0).getSKU(), current_item);
 		    }
@@ -124,13 +124,14 @@ public class InventoryDAOImpl implements InventoryDAO {
 
 			item.setUnit_price(new BigDecimal((objectTokens[2])).setScale(2, RoundingMode.HALF_UP));
 			
+			//String path = "src/main/resources/icons/";
+			
 			item.setIcon(new ImageIcon(objectTokens[3]));
 			
 			int units_in_stock = Integer.valueOf((objectTokens[4]));
 			
 			String SKU = "ITM" + // Prefix
 					item.getItem_description().substring(0, 2) + // Description piece
-					item.getItem_description().substring(3, 4) + // Description piece
 					"000" + // Zeros
 					LocalDate.now().getMonth() + // Month
 					(String.valueOf(LocalDate.now().getYear()).substring(2, 4));// Year
@@ -165,7 +166,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 			try {
 		        out = new PrintWriter(new FileWriter(FILE_PATH));
 		    } catch (IOException e) {
-		        throw new DataSourceException("Could not save student data.", e);
+		        throw new DataSourceException("Could not save data.", e);
 		    }
 			
 			String itemAsText;

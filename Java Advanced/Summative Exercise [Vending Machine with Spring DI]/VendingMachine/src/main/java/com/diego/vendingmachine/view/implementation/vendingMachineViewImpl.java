@@ -7,24 +7,56 @@ import java.util.*;
 
 import javax.swing.*;
 
+import org.springframework.stereotype.Component;
+
+@Component("view")
 public class vendingMachineViewImpl implements vendingMachineView {
 
-	public void print(String label, String msg) {
+	public int print(String label, String msg) {
 		JFrame frame = new JFrame();
-
-	    JOptionPane.showMessageDialog(frame, msg);
-
+	    JOptionPane.showMessageDialog(frame, msg, label, JOptionPane.OK_OPTION);
+	    
+	    int result = JOptionPane.OK_OPTION;
+	    return result;
+	}
+	
+	public int print(String label, String msg, ImageIcon icon) {
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		JOptionPane.showMessageDialog(frame, msg, label, JOptionPane.OK_OPTION,icon);
+		
+		int result = JOptionPane.OK_OPTION;
+	    return result;
+	}
+	
+	public int printOutOfStock() {
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		JOptionPane.showMessageDialog(frame, "There is no items availables", "Vending Machine", JOptionPane.OK_OPTION,new ImageIcon("src/main/resources/icons/outOfStock_icon.png"));
+	
+		int result = JOptionPane.OK_OPTION;
+	    return result;
 	}
 
 	public int readInt(String label, String prompt) {
 		JFrame frame = new JFrame();
 	    int input = Integer.parseInt(JOptionPane.showInputDialog(frame, prompt, label));
-		return input;
+	    if(input == -1) {
+	    	System.exit(0);
+	    }
+	    
+	    return input;
 	}
 	
-	public int readInt(String label, String prompt, ImageIcon icon) {
+	public String readString(String label, String prompt, ImageIcon icon) {
 		JFrame frame = new JFrame();
-	    int input = Integer.parseInt(JOptionPane.showInputDialog(frame, prompt, label, JOptionPane.PLAIN_MESSAGE,icon,  null, "").toString());
+		String input = null;
+		input = JOptionPane.showInputDialog(frame, prompt, label, JOptionPane.PLAIN_MESSAGE,icon,  null, "").toString();
+		
+		if(input.equals("-1")) {
+	    	System.exit(0);
+	    }
+		
 		return input;
 	}
 
@@ -35,13 +67,20 @@ public class vendingMachineViewImpl implements vendingMachineView {
 	    	input = Integer.parseInt(JOptionPane.showInputDialog(frame, "Please provide a number between " + min + " and " + max , "Entry error",
 	    	        JOptionPane.WARNING_MESSAGE));
 	    }
+	    if(input == -1) {
+	    	System.exit(0);
+	    }
 
 		return input;
 	}
 
 	public String readString(String label, String prompt) {
 		JFrame frame = new JFrame();
-	    String input = JOptionPane.showInputDialog(frame, prompt,label);
+		String input = null;
+		input = JOptionPane.showInputDialog(frame, prompt,label);
+	    if(input.equals("-1")) {
+	    	System.exit(0);
+	    }
 		return input;
 	}
 
@@ -52,7 +91,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 		Item [] array_items = new Item [(inventory.getInventory().size()+1)];
 		int counter = 1;
 		
-		array_icons[0] = "Cancel";
+		array_icons[0] = "Exit";
 		array_items[0] = null;
 		
 		Set<String> keys = inventory.getInventory().keySet();
