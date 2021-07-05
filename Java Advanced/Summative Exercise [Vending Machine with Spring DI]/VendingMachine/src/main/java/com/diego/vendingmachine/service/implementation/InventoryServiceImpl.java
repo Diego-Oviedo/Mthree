@@ -39,8 +39,6 @@ public class InventoryServiceImpl implements InventoryService {
 											  InventoryException, 
 											  vendingMachinePersistenceException {
 		Inventory inventory_updated = inventory_dao.editInventory();
-		audit_dao.writeAuditEntry("UPDATE_inventory [" + inventory_updated.getInventory().toString() 
-				+ "] \n{inventory updated}");
 		
 		return inventory_updated;
 	}

@@ -131,7 +131,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 			int units_in_stock = Integer.valueOf((objectTokens[4]));
 			
 			String SKU = "ITM" + // Prefix
-					item.getItem_description().substring(0, 2) + // Description piece
+					item.getItem_description().substring(0, 2).toUpperCase() + // Description piece
 					"000" + // Zeros
 					LocalDate.now().getMonth() + // Month
 					(String.valueOf(LocalDate.now().getYear()).substring(2, 4));// Year

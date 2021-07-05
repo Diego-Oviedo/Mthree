@@ -52,12 +52,9 @@ public class VendingMachineController {
 		try {
 		displayMenu();
 		}catch(Exception e) {
-			if(e.equals(NullPointerException.class)) {
-				System.out.println("error");
+			
+				System.out.println("error: " +  e.getCause());
 				run();
-			}
-			
-			
 		}
 		
 	}
@@ -215,15 +212,14 @@ public class VendingMachineController {
 		}
 		Item item_selected = view.displayMultipleObjects("Available items", "Vending Machine", inventory);
 		if(item_selected != null) {
-			String user_entry_pymnt = view.readString("Item",item_selected.toString(), item_selected.getIcon());
+			String user_entry_pymnt = view.readString("Item",item_selected.toString() + "\n\nPlease insert the moey and click OK", item_selected.getIcon());
 			Pattern pattern = Pattern.compile("[0-999]");
 		    Matcher matcher = pattern.matcher(user_entry_pymnt);
-		    System.out.println("Result"+ user_entry_pymnt);
 		    if(user_entry_pymnt == null) {
 		    	run();
 		    }
 			while(user_entry_pymnt.equals("") || !matcher.find()) {
-				user_entry_pymnt = view.readString("Item",item_selected.toString() + "\nPLEASE ENTER A NUMBER", item_selected.getIcon());
+				user_entry_pymnt = view.readString("Item",item_selected.toString() + "\n\nPLEASE ENTER VALID AMOUNT (e.g. 3.50)", item_selected.getIcon());
 				pattern = Pattern.compile("[0-999]");
 			    matcher = pattern.matcher(user_entry_pymnt);
 			    if(user_entry_pymnt == null) {
@@ -235,7 +231,11 @@ public class VendingMachineController {
 			Map <String,BigDecimal> change = payment_service.receivePayment(payment, item_selected.getUnit_price());
 			if(change == null) {
 				BigDecimal refund = payment_service.refundCustomer(payment);
-				int result_no_funds = view.print("Vending Machine", "Insufficient Funds..." + "\n"+ refund.toString() + "$ has be refunded", new ImageIcon("src/main/resources/icons/InsufficientFunds_icon.png"));
+				int result_no_funds = view.print("Vending Machine", 
+												 "Insufficient Funds..." + 
+												 "\n"+ refund.toString() + "$ has be refunded" + 
+												 "\n\nThe selected item price is: " + item_selected.getUnit_price(),
+												 new ImageIcon("src/main/resources/icons/InsufficientFunds_icon.png"));
 				if(result_no_funds == 0) {
 					run();
 				}
@@ -245,7 +245,7 @@ public class VendingMachineController {
 			sale.setSales_date(LocalDate.now());
 			sale.setSold_item(item_selected);
 			sale_service.entrySale(inventory, sale);
-			int result_sale = view.print("Sale", "Thanks!!!\nHere is your change is :\n" 
+			int result_sale = view.print("Sale", "Thanks!!!\nHere is your change :\n" 
 																+ "Dollars: " + change.get("DOLLARS") + " [1$]\n"
 																+ "Quarters: " + change.get("QUARTERS") + " [25¢]\n"
 																+ "Dimes: " + change.get("DIMES") + " [10¢]\n"
