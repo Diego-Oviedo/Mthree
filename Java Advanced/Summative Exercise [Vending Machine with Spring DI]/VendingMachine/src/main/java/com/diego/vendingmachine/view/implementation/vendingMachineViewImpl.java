@@ -20,39 +20,58 @@ public class vendingMachineViewImpl implements vendingMachineView {
 
 	public Item displayStock(Inventory inventory) {
 		JFrame frame = new JFrame();
-
-		Object [] array_icons = new Object [(inventory.getInventory().size()+1)];
-		Item [] array_items = new Item [(inventory.getInventory().size()+1)];
+		Item item_selected = null;
+		//Object [] array_icons = new Object [(inventory.getInventory().size()+1)];
+		//Item [] array_items = new Item [(inventory.getInventory().size()+1)];
+		ArrayList <Object> array_icons_toList = new ArrayList<Object>();
+		ArrayList <Item> array_items_toList = new ArrayList<Item>();
+		
+		
 		int counter = 1;
 		
-		array_icons[0] = "Exit";
-		array_items[0] = null;
+		//array_icons[0] = "Exit";
+		array_icons_toList.add("Exit");
+		//array_items[0] = null;
+		array_items_toList.add(new Item());
 		
 		Set<String> keys = inventory.getInventory().keySet();
 		
 		for (String key : keys) {
 			
+			if(inventory.getInventory().get(key) != null) {
+			
 			List<Item> item = inventory.getInventory().get(key);
 			
-			if(!item.isEmpty()) {
+			if(!item.isEmpty() || item.size() > 0) {
 				
-				array_icons[counter] = item.get(0).getIcon();
-				array_items[counter] = item.get(0);
+				//array_icons[counter] = item.get(0).getIcon();
+				array_icons_toList.add(item.get(0).getIcon());
+				//array_items[counter] = item.get(0);
+				array_items_toList.add(item.get(0));
 			}
-			
+			}
 			counter++;
 		}
 		
-		int input = JOptionPane.showOptionDialog(frame, "Available items", "Vending Machine",
+		Object [] array_icons = array_icons_toList.toArray();
+		Item[] array_items = new Item [(array_items_toList.size()+1)];
+		
+		counter = 0;
+		for(Item item : array_items_toList) {
+			array_items[counter] = item;
+			counter++;
+		}
+		
+			int input = JOptionPane.showOptionDialog(frame, "Available items", "Vending Machine",
 		        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.YES_NO_CANCEL_OPTION, null, array_icons,
 		        array_icons[0]);
 		
-		 if(input == -1 || input == 0) {
+			if(input == -1 || input == 0) {
 		    	System.exit(0);
-		    }
+		    }		 
+			
+		 item_selected = array_items[input];
 		 
-		 Item item_selected = array_items[input];
-		
 		return item_selected;
 	}
 	
@@ -72,7 +91,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 				item_selected.toString() + "\n\nPlease insert the money and click OK", item_selected.getIcon());
 		Pattern pattern = Pattern.compile("[0-999]");
 		Matcher matcher = pattern.matcher(user_entry_pymnt);
-		if (user_entry_pymnt == null) {
+		if (user_entry_pymnt == null || user_entry_pymnt.equals("-2")) {
 			payment = null;
 		}
 		while (user_entry_pymnt.equals("") || !matcher.find()) {
@@ -152,8 +171,8 @@ public class vendingMachineViewImpl implements vendingMachineView {
 	public String readString(String label, String prompt, ImageIcon icon) {
 		JFrame frame = new JFrame();
 		String input = null;
-		input = JOptionPane.showInputDialog(frame, prompt, label, JOptionPane.PLAIN_MESSAGE,icon,  null, "").toString();
-		
+		input = JOptionPane.showInputDialog(frame, prompt, label, JOptionPane.CANCEL_OPTION,icon,  null, "").toString();
+
 		if(input.equals("-1")) {
 	    	System.exit(0);
 	    }

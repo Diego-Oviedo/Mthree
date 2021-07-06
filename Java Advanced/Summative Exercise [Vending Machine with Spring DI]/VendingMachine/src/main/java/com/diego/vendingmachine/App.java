@@ -8,7 +8,11 @@ import com.diego.vendingmachine.service.*;
 
 public class App 
 {
-	public static void main(String[] a) throws DataSourceException, InventoryException, InsufficientFundsException, vendingMachinePersistenceException {
+	public static void main(String[] a) throws DataSourceException, 
+											   InventoryException, 
+											   InsufficientFundsException, 
+											   vendingMachinePersistenceException, 
+											   NoItemInventoryException {
 
 
 

@@ -124,9 +124,17 @@ public class InventoryDAOImpl implements InventoryDAO {
 
 			item.setUnit_price(new BigDecimal((objectTokens[2])).setScale(2, RoundingMode.HALF_UP));
 			
-			//String path = "src/main/resources/icons/";
+			String path = "src/main/resources/icons/";
 			
-			item.setIcon(new ImageIcon(objectTokens[3]));
+			item.setIcon(new ImageIcon(path + "itemDefault_icon.png"));
+			
+			String icon_name = objectTokens[3];
+			
+			item.getIcon().setDescription(objectTokens[3]);
+			
+			item.setIcon(new ImageIcon(path + item.getIcon().getDescription()));
+			
+			item.getIcon().setDescription(icon_name);
 			
 			int units_in_stock = Integer.valueOf((objectTokens[4]));
 			
@@ -179,6 +187,8 @@ public class InventoryDAOImpl implements InventoryDAO {
 		    	
 		    	List<Item> current_item = inventory.getInventory().get(key);
 		    	
+		    	if(!current_item.isEmpty()) {
+		    	
 		    	Item item = current_item.get(0);
 		    	
 		    	int units_in_stock = (current_item.size()-1);
@@ -188,6 +198,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		        out.println(itemAsText);
 		        // force PrintWriter to write line to the file
 		        out.flush();
+		    	}
 		    }
 		    // Clean up
 		    out.close();

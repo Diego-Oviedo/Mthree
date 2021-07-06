@@ -15,7 +15,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 		BigDecimal QUARTER = new BigDecimal("0.25").setScale(2, RoundingMode.HALF_UP);
 		BigDecimal DIME = new BigDecimal("0.10").setScale(2, RoundingMode.HALF_UP);
 		BigDecimal NICKEL = new BigDecimal("0.05").setScale(2, RoundingMode.HALF_UP);
-		BigDecimal PENNY = new BigDecimal("0.1").setScale(2, RoundingMode.HALF_UP);
+		BigDecimal PENNY = new BigDecimal("0.01").setScale(2, RoundingMode.HALF_UP);
 		
 		 
 		BigDecimal reminder = payment.setScale(2, RoundingMode.UNNECESSARY).subtract(unit_price.setScale(2, RoundingMode.UNNECESSARY));
@@ -32,7 +32,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 		reminder = reminder.remainder(DIME);
 		dimes.setScale(0, RoundingMode.HALF_EVEN);
 		
-		BigDecimal nickels = reminder.divide(NICKEL).setScale(0, RoundingMode.HALF_EVEN);
+		BigDecimal nickels = reminder.divide(NICKEL).setScale(0, RoundingMode.DOWN);
 		reminder = reminder.remainder(NICKEL);
 		nickels.setScale(0, RoundingMode.HALF_EVEN);
 		
