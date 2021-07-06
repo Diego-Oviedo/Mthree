@@ -29,7 +29,7 @@ import com.diego.vendingmachine.model.dto.Inventory;
 import com.diego.vendingmachine.model.dto.Item;
 import com.diego.vendingmachine.model.dto.Sale;
 
-@Component("Inventory_test")
+@Component("DAO_test")
 public class VendingMachineDAOTest{
 	
 	
@@ -54,7 +54,7 @@ public class VendingMachineDAOTest{
 		
 		
 	}
-	
+	 
 	@Test
 	void testAddandGetInventory() throws DataSourceException, InventoryException, IOException {
 		//ARRANGE
@@ -242,7 +242,7 @@ public class VendingMachineDAOTest{
 	}
 	
 	@Test
-	void testEntrySale() throws IOException, DataSourceException, InventoryException {
+	void testCreateASale() throws IOException, DataSourceException, InventoryException {
 		
 		//ARRANGE
 		String testFile = "src/test/Test_05";

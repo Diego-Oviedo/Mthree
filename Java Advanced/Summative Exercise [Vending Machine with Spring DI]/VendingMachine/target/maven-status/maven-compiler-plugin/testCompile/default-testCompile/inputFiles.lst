@@ -1,1 +1,4 @@
-/Users/diegooviedosantana/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/test/java/com/diego/VendingMachine/AppTest.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/test/java/com/diego/test/dao/Inventory/InventoryTest.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/test/java/com/diego/test/dao/Item/ItemStub.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/test/java/com/diego/test/dao/Item/ItemTest.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/VendingMachine/src/test/java/com/diego/test/dao/Inventory/InventoryStub.java
