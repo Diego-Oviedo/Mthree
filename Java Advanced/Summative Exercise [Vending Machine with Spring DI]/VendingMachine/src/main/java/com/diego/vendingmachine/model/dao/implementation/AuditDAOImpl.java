@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component("audit_dao")
 public class AuditDAOImpl implements AuditDAO {
 	
-	public static final String AUDIT_FILE = "_audit.txt";
+	public static final String AUDIT_FILE = "audit.txt";
 
 	public void writeAuditEntry(String entry) throws vendingMachinePersistenceException,DataSourceException{
 		PrintWriter out = null;
