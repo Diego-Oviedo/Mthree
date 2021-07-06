@@ -112,8 +112,8 @@ public class vendingMachineViewImpl implements vendingMachineView {
 	
 	public int printRefund(BigDecimal refund, Item item_selected) {
 		int result = print("Vending Machine",
-				"Insufficient Funds..." + "\n" + refund.toString() + "$ has be refunded"
-						+ "\n\nThe selected item price is: " + item_selected.getUnit_price(),
+				"Insufficient Funds..." + "\n$" + refund.toString() + " has be refunded"
+						+ "\n\nThe selected item price is: $" + item_selected.getUnit_price(),
 				new ImageIcon("src/main/resources/icons/InsufficientFunds_icon.png"));
 		return result;
 	}

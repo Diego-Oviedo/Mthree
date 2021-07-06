@@ -94,7 +94,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "• Item\n・ SKU: " + SKU + "\n・ Description: " + item_description + "\n・ Price: " + unit_price;
+		return "• Item\n・ SKU: " + SKU + "\n・ Description: " + item_description + "\n・ Price: $" + unit_price;
 	}
 
 	
