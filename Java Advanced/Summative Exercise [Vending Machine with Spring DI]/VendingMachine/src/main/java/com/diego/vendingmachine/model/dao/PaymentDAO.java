@@ -6,5 +6,5 @@ import java.util.*;
 
 public interface PaymentDAO {
 
-	public Map<String,BigDecimal> getChange (BigDecimal payment, BigDecimal unit_price);
+	public Map<String,BigDecimal> getChange (BigDecimal payment, BigDecimal unit_price) throws DataSourceException;
 }

@@ -97,14 +97,6 @@ public class VendingMachineController {
 		}
 		Item item_selected = view.displayStock(inventory);
 		
-		if (inventory.getInventory().isEmpty()) {
-			int result_out_stock = view.printOutOfStock();
-
-			if (result_out_stock == 1) {
-				run();
-			}
-
-		}
 
 		return item_selected;
 	}

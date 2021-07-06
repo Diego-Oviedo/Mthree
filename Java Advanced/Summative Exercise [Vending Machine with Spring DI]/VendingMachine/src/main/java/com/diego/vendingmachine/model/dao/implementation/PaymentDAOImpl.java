@@ -5,17 +5,19 @@ import java.util.*;
 import org.springframework.stereotype.Component;
 import com.diego.vendingmachine.model.dao.*;
 import com.diego.vendingmachine.model.dto.*;
+import com.diego.vendingmachine.model.dto.Cent.Denominations;
 
 @Component("payment_dao")
 public class PaymentDAOImpl implements PaymentDAO {
 
-	public Map<String,BigDecimal> getChange(BigDecimal payment, BigDecimal unit_price) {
-		
-		BigDecimal DOLLAR = new BigDecimal("1").setScale(0, RoundingMode.UNNECESSARY);
-		BigDecimal QUARTER = new BigDecimal("0.25").setScale(2, RoundingMode.HALF_UP);
-		BigDecimal DIME = new BigDecimal("0.10").setScale(2, RoundingMode.HALF_UP);
-		BigDecimal NICKEL = new BigDecimal("0.05").setScale(2, RoundingMode.HALF_UP);
-		BigDecimal PENNY = new BigDecimal("0.01").setScale(2, RoundingMode.HALF_UP);
+	public Map<String,BigDecimal> getChange(BigDecimal payment, BigDecimal unit_price) throws 
+																							DataSourceException {
+
+		BigDecimal DOLLAR = new Cent().getDenomination(Denominations.DOLLAR);
+		BigDecimal QUARTER = new Cent().getDenomination(Denominations.QUARTER);
+		BigDecimal DIME = new Cent().getDenomination(Denominations.DIME);
+		BigDecimal NICKEL = new Cent().getDenomination(Denominations.NICKEL);
+		BigDecimal PENNY = new Cent().getDenomination(Denominations.PENNY);
 		
 		 
 		BigDecimal reminder = payment.setScale(2, RoundingMode.UNNECESSARY).subtract(unit_price.setScale(2, RoundingMode.UNNECESSARY));
@@ -39,6 +41,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 		BigDecimal pennies = reminder.divide(PENNY).setScale(0, RoundingMode.CEILING);
 		reminder = reminder.remainder(PENNY);
 		pennies.setScale(0, RoundingMode.CEILING);
+		
 				
 		Map<String,BigDecimal> change = new HashMap<String,BigDecimal>();
 		

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.diego.vendingmachine.model.dao.DataSourceException;
 import com.diego.vendingmachine.model.dao.PaymentDAO;
 import com.diego.vendingmachine.service.InsufficientFundsException;
 import com.diego.vendingmachine.service.PaymentService;
@@ -18,7 +19,9 @@ public class PaymentServiceImpl implements PaymentService {
 	@Qualifier("payment_dao")
 	private PaymentDAO dao;
 
-	public Map<String, BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price) throws InsufficientFundsException{
+	public Map<String, BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price) throws 
+																									InsufficientFundsException, 
+																									DataSourceException{
 		
 		int result = payment.compareTo(unit_price);
 		Map<String, BigDecimal> change = null;
