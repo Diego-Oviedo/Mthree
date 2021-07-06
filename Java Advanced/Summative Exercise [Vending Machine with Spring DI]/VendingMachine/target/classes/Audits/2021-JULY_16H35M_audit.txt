@@ -1,0 +1,6 @@
+2021-JULY-6 @16:35:19 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
+2021-JULY-6 @16:35:22 -> SALE_item [ITMNA000JULY21 - Naya Water] {item sold}
+2021-JULY-6 @16:35:24 -> SALE_item [ITMLA000JULY21 - Lays] {item sold}
+2021-JULY-6 @16:35:27 -> SALE_item [ITMSN000JULY21 - Snickers] {item sold}
+2021-JULY-6 @16:35:29 -> SALE_item [ITMKI000JULY21 - Kit Kat] {item sold}
+2021-JULY-6 @16:35:31 -> SALE_item [ITMTR000JULY21 - Trident Gum] {item sold}

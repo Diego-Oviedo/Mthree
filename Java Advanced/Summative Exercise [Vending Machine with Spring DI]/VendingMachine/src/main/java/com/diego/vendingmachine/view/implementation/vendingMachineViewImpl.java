@@ -56,6 +56,10 @@ public class vendingMachineViewImpl implements vendingMachineView {
 		Object [] array_icons = array_icons_toList.toArray();
 		Item[] array_items = new Item [(array_items_toList.size()+1)];
 		
+		if(array_icons.length <= 1) {
+			printOutOfStock();
+	    }
+		
 		counter = 0;
 		for(Item item : array_items_toList) {
 			array_items[counter] = item;
@@ -69,6 +73,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 			if(input == -1 || input == 0) {
 		    	System.exit(0);
 		    }		 
+			
 			
 		 item_selected = array_items[input];
 		 
