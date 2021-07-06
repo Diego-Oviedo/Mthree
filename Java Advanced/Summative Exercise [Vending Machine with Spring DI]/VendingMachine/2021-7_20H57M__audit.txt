@@ -1,2 +1,0 @@
-2021-JULY-5 @20:57:5 -> SALE_item [ITMNA000JULY21 - Naya Water] {item sold}
-2021-JULY-5 @20:57:20 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}

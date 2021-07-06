@@ -71,8 +71,8 @@ public class VendingMachineController {
 				run();
 			}else { 
 				int exception_result;
-				exception_result = view.print("Error", e.getCause() + "\n" + e.getMessage() + "\n" + e.getStackTrace());
-				if (exception_result == 1) {
+				exception_result = view.print("Error", e.getClass() + "");
+				if (exception_result == 0) {
 					run();
 				}
 			}
