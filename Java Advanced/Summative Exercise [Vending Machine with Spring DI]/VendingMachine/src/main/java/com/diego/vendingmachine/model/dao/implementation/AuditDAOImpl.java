@@ -16,9 +16,10 @@ public class AuditDAOImpl implements AuditDAO {
 	public void writeAuditEntry(String entry) throws vendingMachinePersistenceException,DataSourceException{
 		PrintWriter out = null;
 		LocalDateTime timestamp = LocalDateTime.now();
+		String path = "src/main/resources/Audits/";
 
-		try {
-		    out = new PrintWriter(new FileWriter(timestamp.getYear()+"-"+ timestamp.getMonthValue()+"_"+timestamp.getHour()+"H"+ timestamp.getMinute()+"M_"+AUDIT_FILE, true));
+		try { 
+		    out = new PrintWriter(new FileWriter(path + timestamp.getYear()+"-"+ timestamp.getMonth()+"_"+timestamp.getHour()+"H"+ timestamp.getMinute()+"M_"+AUDIT_FILE, true));
 		} catch (Exception e) {
 			if(!e.equals(IOException.class)) {
 				throw new DataSourceException("Issue when writting the audit [ERROR WITH FILE]", e.getCause());
