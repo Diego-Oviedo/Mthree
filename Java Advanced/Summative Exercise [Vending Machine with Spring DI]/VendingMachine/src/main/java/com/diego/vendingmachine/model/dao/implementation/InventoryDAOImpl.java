@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import com.diego.vendingmachine.model.dao.*;
 import com.diego.vendingmachine.model.dto.*;
 
-@Component("iventory_dao")
+@Component("inventory_dao")
 public class InventoryDAOImpl implements InventoryDAO {
 	
 	public String FILE_PATH = "src/main/resources/";
@@ -36,7 +36,6 @@ public class InventoryDAOImpl implements InventoryDAO {
 	}
 
 	public Inventory addInventory(String file_name) throws DataSourceException,InventoryException{
-		
 		Inventory new_inventory = null;
 		Map<String,List<Item>> new_inventory_structure = null;
 		try {
@@ -94,7 +93,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		    } catch (FileNotFoundException e) {
 		        throw new DataSourceException("File not found.", e.getCause());
 		    }
-		    
+		     
 		    String currentLine;	    
 		    List<Item> current_item;
 		    	    

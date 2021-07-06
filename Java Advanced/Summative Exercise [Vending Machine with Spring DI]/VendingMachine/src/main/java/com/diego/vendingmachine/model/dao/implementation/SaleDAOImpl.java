@@ -13,7 +13,7 @@ public class SaleDAOImpl implements SaleDAO {
 		
 		Item item_sold = inventory.getInventory().get(sku_sold).remove(0);
 		
-		return item_sold;
+		return item_sold; 
 	}
 
 }

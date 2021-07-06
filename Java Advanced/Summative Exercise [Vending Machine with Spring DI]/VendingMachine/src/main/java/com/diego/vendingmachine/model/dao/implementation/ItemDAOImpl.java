@@ -17,7 +17,7 @@ public class ItemDAOImpl implements ItemDAO {
 					"000"+//Zeros
 					LocalDate.now().getMonth()+//Month
 					(String.valueOf(LocalDate.now().getYear()).substring(2,4));//Year
-		
+		 
 		item.setSKU(SKU);
 		
 		List<Item> item_stock = new ArrayList<Item>();
