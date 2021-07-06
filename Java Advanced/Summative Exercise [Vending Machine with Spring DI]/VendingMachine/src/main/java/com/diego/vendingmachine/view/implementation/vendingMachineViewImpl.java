@@ -122,7 +122,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 		int result = print("Sale",
 				"Thanks!!!"
 				+ "\nHere is your change : " 
-						+ "[$"+ change.get("DOLLARS").setScale(2, RoundingMode.UNNECESSARY)
+						+ "$"+ change.get("DOLLARS").setScale(2, RoundingMode.UNNECESSARY)
 								 .add(change.get("QUARTERS").multiply(new BigDecimal("0.25"))
 								 .add(change.get("DIMES").multiply(new BigDecimal("0.10"))
 								 .add(change.get("NICKELS").multiply(new BigDecimal("0.05"))
@@ -131,7 +131,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 									)//end nickels addition
 									)//end dimes addition 
 									)//end quarters addition
-								 +"]\n"					
+								 +"\n"					
 						+ "Dollars: " + change.get("DOLLARS") + " [1$]\n"
 						+ "Quarters: " + change.get("QUARTERS") + " [25¢]\n" 
 						+ "Dimes: " + change.get("DIMES")+ " [10¢]\n"

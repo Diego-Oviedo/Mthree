@@ -1,6 +1,6 @@
 ITMM&000JULY21::M&M's::2.34::M&M_icon.png::15
 ITMNA000JULY21::Naya Water::2.10::waterBottle_icon.png::15
 ITMLA000JULY21::Lays::3.75::Lays_icon.png::15
-ITMSN000JULY21::Snickers::3.28::Snickers_icon.png::15
+ITMSN000JULY21::Snickers::3.28::Snickers_icon.png::14
 ITMKI000JULY21::Kit Kat::1.67::KitKat_icon.png::15
 ITMTR000JULY21::Trident Gum::1.15::Trident_icon.png::15
