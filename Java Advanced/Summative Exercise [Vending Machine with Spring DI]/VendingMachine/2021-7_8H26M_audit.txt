@@ -1,3 +1,0 @@
-2021-JULY-6 @8:26:29 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
-2021-JULY-6 @8:26:35 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
-2021-JULY-6 @8:26:40 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
