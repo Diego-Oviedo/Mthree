@@ -1,10 +1,6 @@
 package com.diego.vendingmachine.service.implementation;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.io.FileWriter;
 import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -67,7 +63,7 @@ public class InventoryServiceImpl implements InventoryService {
 			}
 		}
 
-		return inventory_dao.getInventory();
+		return inventory_retreived;
 	}
 
 	public Inventory updateInventory()

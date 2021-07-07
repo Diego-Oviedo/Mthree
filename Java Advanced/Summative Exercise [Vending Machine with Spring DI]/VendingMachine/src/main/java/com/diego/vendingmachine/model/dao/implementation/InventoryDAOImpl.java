@@ -113,7 +113,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 
 		}
 
-		return inventory;
+		return deleted_inventory;
 	}
 
 	// UTILITY METHODS
