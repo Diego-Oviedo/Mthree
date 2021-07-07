@@ -1,0 +1,11 @@
+2021-JULY-6 @16:25:2 -> SALE_item [ITMM&000JULY21 - M&M's] {item sold}
+2021-JULY-6 @16:25:6 -> SALE_item [ITMNA000JULY21 - Naya Water] {item sold}
+2021-JULY-6 @16:25:8 -> SALE_item [ITMNA000JULY21 - Naya Water] {item sold}
+2021-JULY-6 @16:25:11 -> SALE_item [ITMTR000JULY21 - Trident Gum] {item sold}
+2021-JULY-6 @16:25:14 -> SALE_item [ITMTR000JULY21 - Trident Gum] {item sold}
+2021-JULY-6 @16:25:16 -> SALE_item [ITMKI000JULY21 - Kit Kat] {item sold}
+2021-JULY-6 @16:25:19 -> SALE_item [ITMKI000JULY21 - Kit Kat] {item sold}
+2021-JULY-6 @16:25:22 -> SALE_item [ITMSN000JULY21 - Snickers] {item sold}
+2021-JULY-6 @16:25:29 -> SALE_item [ITMSN000JULY21 - Snickers] {item sold}
+2021-JULY-6 @16:25:32 -> SALE_item [ITMLA000JULY21 - Lays] {item sold}
+2021-JULY-6 @16:25:35 -> SALE_item [ITMLA000JULY21 - Lays] {item sold}
