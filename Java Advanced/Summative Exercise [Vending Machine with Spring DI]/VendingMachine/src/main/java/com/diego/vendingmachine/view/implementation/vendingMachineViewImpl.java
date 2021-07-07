@@ -1,5 +1,6 @@
 package com.diego.vendingmachine.view.implementation;
 
+import com.diego.vendingmachine.model.dao.DataSourceException;
 import com.diego.vendingmachine.model.dto.Inventory;
 import com.diego.vendingmachine.model.dto.Item;
 import com.diego.vendingmachine.model.dto.Sale;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component("view")
 public class vendingMachineViewImpl implements vendingMachineView {
 
-	public Item displayStock(Inventory inventory) {
+	public Item displayStock(Inventory inventory) throws DataSourceException{
 		JFrame frame = new JFrame();
 		Item item_selected = null;
 		//Object [] array_icons = new Object [(inventory.getInventory().size()+1)];
@@ -26,7 +27,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 		ArrayList <Object> array_icons_toList = new ArrayList<Object>();
 		ArrayList <Item> array_items_toList = new ArrayList<Item>();
 		
-		
+		try {
 		int counter = 1;
 		
 		//array_icons[0] = "Exit";
@@ -76,6 +77,11 @@ public class vendingMachineViewImpl implements vendingMachineView {
 			
 			
 		 item_selected = array_items[input];
+		}catch(Exception e) {
+			if(e.getClass().equals(NumberFormatException.class)) {
+				throw new DataSourceException(e.getMessage(),e.getCause());
+			}
+		}
 		 
 		return item_selected;
 	}

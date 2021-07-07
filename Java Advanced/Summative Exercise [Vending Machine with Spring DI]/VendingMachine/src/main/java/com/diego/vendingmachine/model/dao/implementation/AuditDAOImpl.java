@@ -41,6 +41,7 @@ public class AuditDAOImpl implements AuditDAO {
 
 		out.println(date + " -> " + entry);
 		out.flush();
+		out.close();
 	}
 
 }

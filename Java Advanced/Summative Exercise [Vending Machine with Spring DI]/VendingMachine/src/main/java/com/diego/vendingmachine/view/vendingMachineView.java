@@ -5,11 +5,12 @@ import java.util.*;
 
 import javax.swing.ImageIcon;
 
+import com.diego.vendingmachine.model.dao.DataSourceException;
 import com.diego.vendingmachine.model.dto.*;
 
 public interface vendingMachineView {
 	
-	public Item displayStock (Inventory inventory);
+	public Item displayStock (Inventory inventory) throws DataSourceException;
 	
 	public int printOutOfStock();
 	

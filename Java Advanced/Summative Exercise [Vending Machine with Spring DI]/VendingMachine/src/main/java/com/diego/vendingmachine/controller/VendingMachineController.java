@@ -67,7 +67,7 @@ public class VendingMachineController {
 			} else if (e.getClass().equals(NullPointerException.class)) {
 				run();
 			} else {
-				int exception_result;
+				int exception_result; 
 				exception_result = view.print("Error", e.getClass() + "");
 				if (exception_result == 0) {
 					run();
@@ -145,6 +145,29 @@ public class VendingMachineController {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * List<Item> item_01_list = new ArrayList<Item>();
