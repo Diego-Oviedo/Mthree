@@ -30,7 +30,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		FILE_PATH = FILE_PATH + "inventory_data.txt";
 	}
 
-	public InventoryDAOImpl(String fILE_PATH) {
+	public InventoryDAOImpl(String fILE_PATH) { 
 		super();
 		FILE_PATH = fILE_PATH;
 	}
@@ -40,7 +40,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 		Map<String, List<Item>> new_inventory_structure = null;
 		try {
 			File file = new File(file_name + ".txt");
-			if (file.createNewFile()) {
+			if (file.createNewFile()) { 
 
 				new_inventory_structure = new HashMap<String, List<Item>>();
 

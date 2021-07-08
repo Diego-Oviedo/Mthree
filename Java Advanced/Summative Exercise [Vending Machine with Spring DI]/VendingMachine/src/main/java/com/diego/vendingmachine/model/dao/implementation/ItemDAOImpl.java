@@ -8,7 +8,7 @@ import java.util.*;
 import org.springframework.stereotype.Component;
 
 @Component("item_dao")
-public class ItemDAOImpl implements ItemDAO {
+public class ItemDAOImpl implements ItemDAO { 
 
 	public List<Item> addItem(Item item, Inventory inventory, int num_units) {
 

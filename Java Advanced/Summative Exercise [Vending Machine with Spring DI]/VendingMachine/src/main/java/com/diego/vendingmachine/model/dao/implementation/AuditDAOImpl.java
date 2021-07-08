@@ -17,7 +17,7 @@ public class AuditDAOImpl implements AuditDAO {
 		this.AUDIT_FILE = AUDIT_FILE;
 	}
 	
-	public AuditDAOImpl(String file_name) {
+	public AuditDAOImpl(String file_name) { 
 		AUDIT_FILE = file_name;
 	}
 	

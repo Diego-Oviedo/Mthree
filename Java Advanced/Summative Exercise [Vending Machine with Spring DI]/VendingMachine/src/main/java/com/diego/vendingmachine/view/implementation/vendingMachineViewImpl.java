@@ -28,7 +28,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 		ArrayList <Item> array_items_toList = new ArrayList<Item>();
 		
 		try {
-		int counter = 1;
+		int counter = 1; 
 		
 		//array_icons[0] = "Exit";
 		array_icons_toList.add("Exit");
@@ -49,7 +49,7 @@ public class vendingMachineViewImpl implements vendingMachineView {
 				array_icons_toList.add(item.get(0).getIcon());
 				//array_items[counter] = item.get(0);
 				array_items_toList.add(item.get(0));
-			}
+			} 
 			}
 			counter++;
 		}

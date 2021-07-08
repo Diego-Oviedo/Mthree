@@ -19,13 +19,13 @@ public class SaleServiceImpl implements SaleService {
 	private SaleDAO sale_dao;
 
 	public Item entrySale(Inventory inventory, Sale sale)
-			throws NoItemInventoryException, vendingMachinePersistenceException, DataSourceException {
+			throws NoItemInventoryException, vendingMachinePersistenceException, DataSourceException { 
 
 		Item item_sold = null;
 		try {
 
 			if (!inventory.getInventory().containsKey(sale.getSold_item().getSKU())) {// If item does not exists in
-																						// inventory
+																						// inventory 
 
 				throw new NoItemInventoryException("Item out of stock");
 			} else {

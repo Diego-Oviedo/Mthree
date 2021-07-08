@@ -78,7 +78,7 @@ public class VendingMachineDAOTest{
 		item_01_list.add(item_01);
 		item_01_list.add(item_01);
 		item_01_list.add(item_01);
-
+ 
 		
 		//ACT
 		Inventory inventory = test_dao_inventory.addInventory(testFile);

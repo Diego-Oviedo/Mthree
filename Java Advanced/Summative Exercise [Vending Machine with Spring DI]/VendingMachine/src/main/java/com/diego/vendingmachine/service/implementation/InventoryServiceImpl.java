@@ -27,7 +27,7 @@ public class InventoryServiceImpl implements InventoryService {
 		try {
 			inventory_dao = new InventoryDAOImpl(file_name);
 
-			inventory_created = inventory_dao.addInventory(file_name);
+			inventory_created = inventory_dao.addInventory(file_name); 
 
 			audit_dao.writeAuditEntry(
 					"CREATE_inventory [" + inventory_created.getInventory().values() + "] \n{inventory created}");
@@ -39,7 +39,7 @@ public class InventoryServiceImpl implements InventoryService {
 			} else if (e.getClass().equals(vendingMachinePersistenceException.class)) {
 				throw new vendingMachinePersistenceException(e.getMessage(), e.getCause());
 			} else {
-				e.printStackTrace();
+				e.printStackTrace(); 
 
 			}
 

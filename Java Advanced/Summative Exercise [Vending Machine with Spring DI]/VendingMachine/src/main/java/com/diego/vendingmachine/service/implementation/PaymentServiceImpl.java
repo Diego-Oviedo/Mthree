@@ -18,7 +18,7 @@ import com.diego.vendingmachine.service.PaymentService;
 public class PaymentServiceImpl implements PaymentService {
 
 	@Autowired
-	@Qualifier("payment_dao")
+	@Qualifier("payment_dao") 
 	private PaymentDAO dao;
 
 	public Map<String, BigDecimal> receivePayment(BigDecimal payment, BigDecimal unit_price)
@@ -29,7 +29,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 		try {
 
-			if (result == -1) {// If payment is less than the unit price
+			if (result == -1) {// If payment is less than the unit price 
 				// throw new InsufficientFundsException("Insufficient Funds...");
 
 				change = change;
@@ -42,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
 			if (e.getClass().equals(DataSourceException.class)) {
 				throw new DataSourceException(e.getMessage(), e.getCause());
 			} else if (e.getClass().equals(InsufficientFundsException.class)) {
-				throw new InsufficientFundsException(e.getMessage(), e.getCause());
+				throw new InsufficientFundsException(e.getMessage(), e.getCause()); 
 			} else {
 				e.printStackTrace();
 

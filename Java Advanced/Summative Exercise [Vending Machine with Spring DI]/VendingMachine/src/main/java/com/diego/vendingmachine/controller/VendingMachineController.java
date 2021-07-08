@@ -50,11 +50,10 @@ public class VendingMachineController {
 			Item item_selected = displayMenu();
 			BigDecimal payment = takePayment(item_selected);
 			entryASale(item_selected, payment);
-
 		} catch (Exception e) {
 			if (e.getClass().equals(DataSourceException.class)) {
 				run();
-				throw new DataSourceException(e.getMessage(), e.getCause());
+				throw e; //new DataSourceException(e.getMessage(), e.getCause());
 			} else if (e.getClass().equals(InventoryException.class)) {
 				run();
 				throw new InventoryException(e.getMessage(), e.getCause());
@@ -80,7 +79,7 @@ public class VendingMachineController {
 	public Item displayMenu() throws DataSourceException, InventoryException, InsufficientFundsException,
 			vendingMachinePersistenceException, NoItemInventoryException {
 
-		Inventory inventory = inventory_service.retreiveInventory();
+		Inventory inventory = inventory_service.retreiveInventory(); 
 
 		if (inventory.getInventory().isEmpty()) {
 			int result_out_stock = view.printOutOfStock();
@@ -256,3 +255,4 @@ public class VendingMachineController {
  * inventory_service.updateInventory();
  * 
  */
+

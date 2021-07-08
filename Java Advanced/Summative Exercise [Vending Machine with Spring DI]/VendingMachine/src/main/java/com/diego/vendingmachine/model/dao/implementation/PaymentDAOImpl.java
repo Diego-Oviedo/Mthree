@@ -16,7 +16,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 		BigDecimal QUARTER = new Cent().getDenomination(Denominations.QUARTER);
 		BigDecimal DIME = new Cent().getDenomination(Denominations.DIME);
 		BigDecimal NICKEL = new Cent().getDenomination(Denominations.NICKEL);
-		BigDecimal PENNY = new Cent().getDenomination(Denominations.PENNY);
+		BigDecimal PENNY = new Cent().getDenomination(Denominations.PENNY); 
 
 		BigDecimal reminder = payment.setScale(2, RoundingMode.UNNECESSARY)
 				.subtract(unit_price.setScale(2, RoundingMode.UNNECESSARY));
