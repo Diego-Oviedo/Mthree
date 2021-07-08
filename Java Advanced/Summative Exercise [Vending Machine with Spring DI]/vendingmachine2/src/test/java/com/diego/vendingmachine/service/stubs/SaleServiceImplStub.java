@@ -20,7 +20,7 @@ import com.diego.vendingmachine.service.implementation.ItemServiceImpl;
 public class SaleServiceImplStub implements SaleService {
 
 	@Autowired
-	@Qualifier("item_dao_test")
+	@Qualifier("item_service_test")
 	private ItemService item_service_test;
 	
 	@Autowired

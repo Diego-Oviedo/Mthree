@@ -18,7 +18,7 @@ import com.diego.vendingmachine.service.stubs.ItemServiceImplStub;
 class ItemServiceTest {
 	
 	@Autowired
-	@Qualifier("item_service")
+	@Qualifier("item_service_test")
 	private ItemService item_service_test;
 
 	@BeforeEach
