@@ -1,0 +1,12 @@
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dto/Item.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/service/ItemService.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/ItemDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/service/ChangeService.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/vendingMachinePersistenceException.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/test/java/com/diego/vendingmachine/ItemSericeTest.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/DataSourceException.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/AuditDAO.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/implementation/AuditDAOImpl.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/App.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/InventoryException.java
+/Users/diegooviedo/git/Mthree/Java Advanced/Summative Exercise [Vending Machine with Spring DI]/vendingmachine2/src/main/java/com/diego/vendingmachine/dao/implementation/ItemDAOImpl.java

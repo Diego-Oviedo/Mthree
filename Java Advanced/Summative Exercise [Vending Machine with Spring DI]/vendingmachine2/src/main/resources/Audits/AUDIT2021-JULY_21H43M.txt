@@ -1,0 +1,4 @@
+2021-JULY-7 @21:43:24 -> [Item Updated] : ITMSN000JULY21 Snickers
+2021-JULY-7 @21:43:24 -> [Item Sold] : ITMSN000JULY21 Snickers
+2021-JULY-7 @21:43:30 -> [Item Updated] : ITMTR000JULY21 Trident Gum
+2021-JULY-7 @21:43:30 -> [Item Sold] : ITMTR000JULY21 Trident Gum
