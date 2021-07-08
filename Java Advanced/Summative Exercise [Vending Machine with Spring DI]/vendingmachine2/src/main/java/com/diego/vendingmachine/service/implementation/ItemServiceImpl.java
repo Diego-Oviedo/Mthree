@@ -11,9 +11,11 @@ import com.diego.vendingmachine.service.*;
 public class ItemServiceImpl implements ItemService {
 	
 	@Autowired
+	@Qualifier("item_dao")
 	private ItemDAO item_dao;
 	
 	@Autowired
+	@Qualifier("audit_dao")
 	private AuditDAO audit_dao;
 	
 	public Item createItem(Item item) throws DataSourceException, InventoryException, vendingMachinePersistenceException {

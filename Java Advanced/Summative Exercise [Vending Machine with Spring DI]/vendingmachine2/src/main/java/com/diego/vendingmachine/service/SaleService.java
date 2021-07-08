@@ -7,6 +7,6 @@ import com.diego.vendingmachine.dto.*;
 
 public interface SaleService {
 
-	public Item entrySale(Item item) throws NoItemInventoryException, vendingMachinePersistenceException, DataSourceException, InventoryException;
+	public Item entrySale(Item item) throws NoItemInventoryException, vendingMachinePersistenceException, DataSourceException, InventoryException, NonExistingItemException;
 	
 	}

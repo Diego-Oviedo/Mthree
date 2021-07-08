@@ -99,7 +99,12 @@ public class Controller {
 			if (change != null) {
 				
 				try {
-					sale_service.entrySale(item);
+					try {
+						sale_service.entrySale(item);
+					} catch (NonExistingItemException e) {
+						view.displayError(e.getMessage());
+						System.exit(0);
+					}
 				} catch (NoItemInventoryException e) {
 					view.displayError(e.getMessage());
 					System.exit(0);

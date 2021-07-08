@@ -15,6 +15,7 @@ public class ItemDAOImpl implements ItemDAO {
 	public static final String FILE_PATH = "src/main/resources/inventory_data.txt";
 	public static final String DELIMITER = "::";
 	private List<Item> inventory = null;
+	
 
 	// DAO methods
 
