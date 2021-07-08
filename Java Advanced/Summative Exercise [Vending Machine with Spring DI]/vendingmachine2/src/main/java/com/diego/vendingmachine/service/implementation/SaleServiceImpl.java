@@ -28,7 +28,7 @@ public class SaleServiceImpl implements SaleService {
 			if(item_service.retreiveItem(item.getSKU()) == null)
 				throw new NonExistingItemException("Item not registered...");
 			//Handling to sell an item out of stock
-			if (item_service.retreiveItem(item.getSKU()).getUnits_in_stock().length <= 0) {// If item does not exists in
+			if (item_service.retreiveItem(item.getSKU()).getUnits_in_stock().length <= 0) {// If the selected item remains at the 0 position, is considered as no stock 
 				throw new NoItemInventoryException("Item out of stock");
 				
 			} else {

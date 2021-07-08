@@ -1,0 +1,8 @@
+com/diego/vendingmachine/service/test/SaleServiceTest.class
+com/diego/vendingmachine/service/test/PaymentServiceTest.class
+com/diego/vendingmachine/service/stubs/PaymentServiceImplStub$1.class
+com/diego/vendingmachine/service/stubs/SaleServiceImplStub.class
+com/diego/vendingmachine/dao/stubs/ItemDAOImplStub.class
+com/diego/vendingmachine/service/test/ItemServiceTest.class
+com/diego/vendingmachine/service/stubs/ItemServiceImplStub.class
+com/diego/vendingmachine/dao/stubs/AuditDAOImplStub.class

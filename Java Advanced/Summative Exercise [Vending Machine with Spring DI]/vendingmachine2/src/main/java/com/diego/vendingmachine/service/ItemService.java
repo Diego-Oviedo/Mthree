@@ -8,7 +8,7 @@ public interface ItemService {
 	
 	public Item createItem(Item item) throws DataSourceException, InventoryException, vendingMachinePersistenceException;
 	
-	public Item retreiveItem(String SKU) throws DataSourceException, InventoryException;
+	public Item retreiveItem(String SKU) throws DataSourceException, InventoryException, NonExistingItemException;
 	
 	public Item retreiveItembyDescription(String item_description) throws DataSourceException, InventoryException;
 	

@@ -23,7 +23,7 @@ public class ItemServiceImpl implements ItemService {
 		
 		//If the item aimed to be added already exists 
 		if(item_dao.getItem(item.getSKU()) != null) {
-			item_dao.editItem(item.getSKU(), item);
+			item_added = item_dao.editItem(item.getSKU(), item);
 		}else {
 			item_added = item_dao.addItem(item);
 		}
@@ -31,8 +31,16 @@ public class ItemServiceImpl implements ItemService {
 		return item_added;
 	}
 
-	public Item retreiveItem(String SKU) throws DataSourceException, InventoryException {
-		return item_dao.getItem(SKU);
+	public Item retreiveItem(String SKU) throws DataSourceException, InventoryException, NonExistingItemException {
+		Item item_retreived = null;
+		
+		try {
+			item_retreived = item_dao.getItem(SKU);
+		}catch(NullPointerException e) {
+			throw new NonExistingItemException("Item not registered...");
+		}
+		
+		return item_retreived;
 	}
 
 	public Item retreiveItembyDescription(String item_description) throws DataSourceException, InventoryException {
