@@ -14,7 +14,7 @@ import com.diego.vendingmachine.service.SaleService;
 public class SaleServiceImpl implements SaleService {
 
 	@Autowired
-	@Qualifier("item_service")
+	@Qualifier("item_services")
 	private ItemService item_service;
 	
 	@Autowired

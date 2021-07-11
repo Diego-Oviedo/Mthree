@@ -14,7 +14,7 @@ import com.diego.vendingmachine.service.stubs.*;
 class SaleServiceTest {
 	
 	@Autowired
-	@Qualifier("sale_service_test")
+	@Qualifier("sale_service")
 	private SaleService sale_service_test;
 	
 	@Autowired
