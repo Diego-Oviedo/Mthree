@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @Controller
 public class AppController {
@@ -27,6 +28,30 @@ public class AppController {
         number = Integer.parseInt(request.getParameter("formNumber"));
         
         return "redirect:/test";
+    }
+    
+    @GetMapping("testList") 
+    public String testList(Model model) {
+        List<Integer> numbers = new ArrayList<>();
+        
+        numbers.add(0);
+        numbers.add(10);
+        numbers.add(6);
+        numbers.add(35);
+        
+        model.addAttribute("numberList", numbers);
+        
+        return "testList";
+    }
+    
+    @GetMapping("testConditional")
+    public String testConditional(Model model) {
+        
+        model.addAttribute("truth", true);
+        model.addAttribute("theNumber", 33);
+        model.addAttribute("aString", "testing");
+        
+        return "testConditional";
     }
 
 }

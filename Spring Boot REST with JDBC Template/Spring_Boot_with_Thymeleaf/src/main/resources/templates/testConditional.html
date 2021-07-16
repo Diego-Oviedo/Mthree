@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Conditionals example </title>
+</head>
+<body>
+
+		<p th:if="${truth}">Truth is true</p><!--can take in boolean variables and evaluate them, only displaying the tag if the variable is true. -->
+        <p th:if="${!truth}">Truth is false</p>
+        <p th:if="${theNumber == 33}">The number is 33</p><!--check another variable and create its own boolean statement to evaluate -->
+			<!--displaying the tag only if the statement is true. -->
+		
+		<div th:switch="${aString}">
+            <p th:case="differentCase">A different case</p>
+            <p th:case="*">The default case: <span th:text="${aString}"></span></p>
+        </div>
+		
+
+</body>
+</html>
